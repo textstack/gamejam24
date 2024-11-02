@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds2jc41gogoo3"]
+
+[ext_resource type="Script" path="res://areas/test.gd" id="1_finm1"]
+[ext_resource type="PackedScene" uid="uid://c0jardu1884hj" path="res://characters/player.tscn" id="2_k1t60"]
+[ext_resource type="PackedScene" uid="uid://cqqdl0sk5peos" path="res://objects/coin.tscn" id="3_pkvuf"]
+[ext_resource type="PackedScene" uid="uid://duqtigcbefxlc" path="res://objects/enemy.tscn" id="4_1p6kt"]
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_finm1")
+
+[node name="Player" parent="." instance=ExtResource("2_k1t60")]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 1152.0
+offset_bottom = 650.0
+theme_override_font_sizes/normal_font_size = 40
+text = "awdsda"
+
+[node name="Coin" parent="." instance=ExtResource("3_pkvuf")]
+position = Vector2(719, 393)
+
+[node name="Enemy" parent="." instance=ExtResource("4_1p6kt")]
+position = Vector2(983, 97)
+
+[node name="Enemy2" parent="." instance=ExtResource("4_1p6kt")]
+position = Vector2(1008, 520)
+
+[node name="Enemy3" parent="." instance=ExtResource("4_1p6kt")]
+position = Vector2(562, 623)

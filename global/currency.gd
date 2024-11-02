@@ -24,6 +24,7 @@ func getIcon():
 
 func add(amount):
 	total += amount
+	return true
 
 
 func trySpend(amount):

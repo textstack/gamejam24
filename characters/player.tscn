@@ -19,4 +19,6 @@ shape = SubResource("RectangleShape2D_csqst")
 wait_time = 2.0
 autostart = true
 
+[node name="Marker2D" type="Marker2D" parent="."]
+
 [connection signal="timeout" from="HPTimer" to="." method="_on_hp_timer_timeout"]

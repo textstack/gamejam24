@@ -21,6 +21,10 @@ Currencies="*res://global/currencies.gd"
 InteractionManager="*res://shops/interaction/interactionManager.tscn"
 Upgrades="*res://global/upgrades.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [global_group]
 
 TrackingEnemy=""

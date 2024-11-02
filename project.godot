@@ -16,7 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-InteractionManager="*res://shops/interactionManager.tscn"
+InteractionManager="*res://shops/interaction/interactionManager.tscn"
 
 [input]
 

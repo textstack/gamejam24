@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://c4lyv77js54p3"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://c4lyv77js54p3"]
 
 [ext_resource type="Texture2D" uid="uid://bil1kdustt8xd" path="res://tilemaps/Zombie Apocalypse Tileset Reference.png" id="1_ie8n5"]
+[ext_resource type="Texture2D" uid="uid://dlsgla2644hbw" path="res://tilemaps/water_animation.png" id="1_k810t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_odard"]
 texture = ExtResource("1_ie8n5")
@@ -406,7 +407,6 @@ separation = Vector2i(1, 3)
 4:16/0 = 0
 5:16/0 = 0
 6:16/0 = 0
-7:16/0 = 0
 8:16/0 = 0
 9:16/0 = 0
 10:16/0 = 0
@@ -451,7 +451,6 @@ separation = Vector2i(1, 3)
 4:17/0 = 0
 5:17/0 = 0
 6:17/0 = 0
-7:17/0 = 0
 8:17/0 = 0
 9:17/0 = 0
 10:17/0 = 0
@@ -496,7 +495,6 @@ separation = Vector2i(1, 3)
 4:18/0 = 0
 5:18/0 = 0
 6:18/0 = 0
-7:18/0 = 0
 8:18/0 = 0
 9:18/0 = 0
 10:18/0 = 0
@@ -597,7 +595,19 @@ separation = Vector2i(1, 3)
 27:13/0 = 0
 27:14/0 = 0
 28:14/0 = 0
+7:16/0 = 0
+7:17/0 = 0
+7:18/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vmyad"]
+texture = ExtResource("1_k810t")
+0:0/animation_columns = 3
+0:0/animation_frame_0/duration = 0.6
+0:0/animation_frame_1/duration = 0.6
+0:0/animation_frame_2/duration = 0.6
+0:0/0 = 0
 
 [resource]
 terrain_set_0/mode = 0
 sources/2 = SubResource("TileSetAtlasSource_odard")
+sources/5 = SubResource("TileSetAtlasSource_vmyad")

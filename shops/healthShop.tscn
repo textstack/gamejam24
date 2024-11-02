@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://l5dil5v2fj18" path="res://shops/interaction/shopping.tscn" id="1_hb2un"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qfy7m"]
-radius = 37.0
+radius = 93.0
 
 [node name="HealthShop" type="Node2D"]
 script = ExtResource("1_6ysnu")

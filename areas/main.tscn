@@ -1,11 +1,3 @@
-[gd_scene load_steps=3 format=3 uid="uid://df0hqk4bito00"]
-
-[ext_resource type="PackedScene" uid="uid://c0jardu1884hj" path="res://characters/player.tscn" id="1_iq7cv"]
-[ext_resource type="PackedScene" uid="uid://c488gyky68pun" path="res://shops/healthShop.tscn" id="2_qewl5"]
+[gd_scene format=3 uid="uid://df0hqk4bito00"]
 
 [node name="Main" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource("1_iq7cv")]
-
-[node name="HealthShop" parent="." instance=ExtResource("2_qewl5")]
-position = Vector2(302, 133)

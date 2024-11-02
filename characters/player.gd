@@ -38,12 +38,6 @@ func die():
 	#get_tree().quit()
 
 func _process(_delta: float) -> void:
-	if Currencies.zone < 0:
-		$HPTimer.wait_time = 2
-		return
-	
-	$HPTimer.wait_time = 2.0 / (3 ** Currencies.zone)
-	
 	if cur_weapon != Currencies.weapon_tier:
 		cur_weapon = Currencies.weapon_tier
 		if Currencies.weapon_tier == 1:
@@ -60,11 +54,19 @@ func _process(_delta: float) -> void:
 			print("now have pistol")
 			pistol_equip = gun.instantiate()
 			add_child(pistol_equip)
-		if Currencies.weapon_tier >= 4:
+		if Currencies.weapon_tier == 4:
 			pistol_equip.queue_free()
 			print("now have rifle")
 			shotgun_equip = shotgun.instantiate()
 			add_child(shotgun_equip)
+		if Currencies.weapon_tier > 4:
+			pass
+			
+	if Currencies.zone < 0:
+		$HPTimer.wait_time = 2
+		return
+	
+	$HPTimer.wait_time = 2.0 / (3 ** Currencies.zone)
 
 func _physics_process(_delta: float) -> void:
 	var move = Vector2(

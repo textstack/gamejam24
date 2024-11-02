@@ -17,5 +17,6 @@ func _on_interact():
 	if Currencies.money.trySpend(cost):
 		print("Weapon Gained")
 		Currencies.weapon_tier += 1
+		print(Currencies.weapon_tier)
 	else:
-		print("Too poor for Qeapon")
+		print("Too poor for Weapon")

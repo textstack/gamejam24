@@ -13,6 +13,8 @@ radius = 60.0
 [node name="Enemy" type="CharacterBody2D" groups=["TrackingEnemy"]]
 collision_layer = 3
 collision_mask = 3
+slide_on_ceiling = false
+platform_floor_layers = 4294901760
 script = ExtResource("1_qmhxg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -39,7 +41,16 @@ visible = false
 offset_right = 294.0
 offset_bottom = 71.0
 
+[node name="CanSeePlayer" type="RayCast2D" parent="."]
+collision_mask = 2
+hit_from_inside = true
+
+[node name="WanderTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
 [connection signal="body_entered" from="Sight" to="." method="_on_sight_body_entered"]
 [connection signal="body_exited" from="Sight" to="." method="_on_sight_body_exited"]
 [connection signal="body_entered" from="MoveAway" to="." method="_on_move_away_body_entered"]
 [connection signal="body_exited" from="MoveAway" to="." method="_on_move_away_body_exited"]
+[connection signal="timeout" from="WanderTimer" to="." method="_on_wander_timer_timeout"]

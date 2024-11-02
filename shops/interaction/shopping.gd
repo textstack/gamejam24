@@ -8,6 +8,7 @@ var Buy: Callable = func():
 	
 	
 
+# when body entered or exited signals interactin manager
 
 func _on_body_entered(body: Node2D) -> void:
 	InteractionManager.register_area(self)

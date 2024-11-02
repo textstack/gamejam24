@@ -9,6 +9,7 @@ const SPEED = 275
 const SLOW_SPEED = 50
 const SMOOTH = 0.05
 
+var health = 3
 
 var lastHitPlayer = 0
 var lastSeenPlayer
@@ -59,6 +60,11 @@ func die():
 		point.visible = true
 	queue_free()
 
+func handle_hit(damage: int):
+	health -= damage
+	print("Enemy was hit " + str(health))
+	if health <= 0:
+		die()
 
 func onCollide(collision):
 	velocity = velocity.bounce(collision.get_normal())
@@ -138,7 +144,7 @@ func goAwayFromOthers():
 	velocity = velocity.lerp(totalDiff.normalized() * -SLOW_SPEED, SMOOTH)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var collision = get_last_slide_collision()
 	if collision:
 		onCollide(collision)

@@ -5,7 +5,7 @@ var target
 var othersNear = {}
 
 
-const SPEED = 200
+const SPEED = 275
 const SLOW_SPEED = 50
 const SMOOTH = 0.05
 

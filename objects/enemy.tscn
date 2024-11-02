@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://duqtigcbefxlc"]
+
+[ext_resource type="Script" path="res://objects/enemy.gd" id="1_qmhxg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_meyah"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_820nc"]
+radius = 200.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hs8et"]
+radius = 60.0
+
+[node name="Enemy" type="CharacterBody2D" groups=["TrackingEnemy"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_qmhxg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_meyah")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 0.164706, 0.192157, 1)
+polygon = PackedVector2Array(0, -10, 7, -7, 10, 0, 7, 7, 0, 10, -7, 7, -10, 0, -7, -7)
+
+[node name="Sight" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
+shape = SubResource("CircleShape2D_820nc")
+
+[node name="MoveAway" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoveAway"]
+shape = SubResource("CircleShape2D_hs8et")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 294.0
+offset_bottom = 71.0
+
+[connection signal="body_entered" from="Sight" to="." method="_on_sight_body_entered"]
+[connection signal="body_exited" from="Sight" to="." method="_on_sight_body_exited"]
+[connection signal="body_entered" from="MoveAway" to="." method="_on_move_away_body_entered"]
+[connection signal="body_exited" from="MoveAway" to="." method="_on_move_away_body_exited"]

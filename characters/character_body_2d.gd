@@ -1,20 +1,18 @@
 extends CharacterBody2D
 
+class_name Player
+
 
 const SPEED = 300.0
 const SMOOTH = 0.6
-
-
-var health = 30
-var max_health = 30
 
 
 func takeDamage(amount):
 	if not amount:
 		amount = 1
 	
-	health -= amount
-	if health <= 0:
+	Currencies.health.total -= amount
+	if Currencies.health.total <= 0:
 		die()
 
 

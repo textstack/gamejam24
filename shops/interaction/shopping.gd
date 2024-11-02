@@ -2,6 +2,7 @@ extends Area2D
 class_name shopping
 
 @export var action_name: String = "Buy"
+@export var shop_cost: int = 0
 
 var Buy: Callable = func():
 	pass

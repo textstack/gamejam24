@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dajlykxv5xguf"
+path="res://.godot/imported/Ambient Wind (8).mp3-27fd003296f51cc03009cf0470e0ce77.mp3str"
+
+[deps]
+
+source_file="res://sound_effects/ambience/Ambient Wind/Ambient Wind (8).mp3"
+dest_files=["res://.godot/imported/Ambient Wind (8).mp3-27fd003296f51cc03009cf0470e0ce77.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

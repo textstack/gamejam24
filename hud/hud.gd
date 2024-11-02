@@ -26,12 +26,12 @@ func _set_zone(new_zone: String):
 
 # Updates the money
 func _set_money(amount: int):
-	money += amount
+	money = amount
 	curr_money.bbcode_text = '[color=797165]$ ' + str(money) + '[/color]'
 
 # Updates the health
 func _set_health(amount: int):
-	health += amount
+	health = amount
 	curr_health.bbcode_text = '[color=797165]HEALTH: ' + str(health) + '[/color]'
 
 # Function to update current weapon

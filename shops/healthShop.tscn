@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c488gyky68pun"]
+
+[ext_resource type="Script" path="res://shops/health_shop.gd" id="1_6ysnu"]
+[ext_resource type="PackedScene" uid="uid://l5dil5v2fj18" path="res://shops/interaction/shopping.tscn" id="1_hb2un"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qfy7m"]
+radius = 37.0
+
+[node name="HealthShop" type="Node2D"]
+script = ExtResource("1_6ysnu")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2(5, 5)
+color = Color(1, 0, 1, 1)
+polygon = PackedVector2Array(-2, -3, 2, -3, 2, 2, -2, 2)
+
+[node name="Shopping" parent="." instance=ExtResource("1_hb2un")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shopping"]
+shape = SubResource("CircleShape2D_qfy7m")

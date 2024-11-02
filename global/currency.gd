@@ -8,10 +8,10 @@ var currencyName = "Money"
 var total = 0
 
 
-func _init(startTotal, currencyName, icon):
+func _init(startTotal, currencyName_, icon_):
 	total = startTotal
-	currencyName = currencyName
-	icon = icon
+	currencyName = currencyName_
+	icon = icon_
 
 
 func getName():

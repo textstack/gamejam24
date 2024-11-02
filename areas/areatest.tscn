@@ -8,10 +8,6 @@
 [node name="Areatest" type="Node2D"]
 script = ExtResource("1_a0d2x")
 
-[node name="Enemy" parent="." instance=ExtResource("2_xs7bm")]
-position = Vector2(991, 121)
-script = ExtResource("1_a0d2x")
-
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_right = 810.0
 offset_bottom = 338.0
@@ -28,3 +24,6 @@ position = Vector2(516, 531)
 [node name="SafeZone" parent="." instance=ExtResource("5_dww66")]
 position = Vector2(100, 100)
 scale = Vector2(10, 10)
+
+[node name="Enemy" parent="." instance=ExtResource("2_xs7bm")]
+position = Vector2(890, 102)

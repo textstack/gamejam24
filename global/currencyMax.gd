@@ -3,19 +3,19 @@ extends Currency
 class_name CurrencyMax
 
 
-var max = 0
+var highestAllowed = 0
 
 
-func _init(startTotal, startMax, currencyName, icon):
+func _init(startTotal, startMax, currencyName_, icon_):
 	total = startTotal
-	max = startMax
-	currencyName = currencyName
-	icon = icon
+	highestAllowed = startMax
+	currencyName = currencyName_
+	icon = icon_
 
 
 func add(amount):
-	if total + amount > max:
-		total = max
+	if total + amount > highestAllowed:
+		total = highestAllowed
 		return false
 	
 	total += amount
@@ -23,8 +23,8 @@ func add(amount):
 
 
 func getMax():
-	return max
+	return highestAllowed
 	
 
 func addMax(amount):
-	max += amount
+	highestAllowed += amount

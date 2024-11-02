@@ -17,7 +17,8 @@ func takeDamage(amount):
 
 
 func die():
-	get_tree().quit()
+	pass
+	#get_tree().quit()
 
 
 func _physics_process(_delta: float) -> void:
@@ -32,9 +33,17 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 
+func _process(_delta: float) -> void:
+	if Currencies.zone < 0:
+		$HPTimer.wait_time = 2
+		return
+	
+	$HPTimer.wait_time = 2.0 / (3 ** Currencies.zone)
+
+
 func _on_hp_timer_timeout() -> void:
 	if Currencies.zone < 0:
 		return
 	
-	takeDamage(5 ** Currencies.zone)
+	takeDamage(1)
 	

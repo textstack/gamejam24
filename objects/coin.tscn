@@ -4,18 +4,21 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_meyah"]
 
-[node name="Coin" type="Node2D"]
-
-[node name="RigidBody2D" type="Area2D" parent="."]
+[node name="Coin" type="Area2D"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_tbttx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_meyah")
 
-[node name="Polygon2D" type="Polygon2D" parent="RigidBody2D"]
+[node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(1, 1, 0.447059, 1)
 polygon = PackedVector2Array(0, -10, 7, -7, 10, 0, 7, 7, 0, 10, -7, 7, -10, 0, -7, -7)
 
-[connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_body_entered"]
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_right = 357.0
+offset_bottom = 159.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

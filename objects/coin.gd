@@ -7,10 +7,6 @@ var zone = 0
 var point
 
 
-func _process(delta):
-	$RichTextLabel.text = str(position)
-
-
 func _on_body_entered(body: Node) -> void:
 	if body is Player:
 		Currencies.money.add(5 ** zone)

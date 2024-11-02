@@ -4,17 +4,19 @@
 [ext_resource type="PackedScene" uid="uid://l5dil5v2fj18" path="res://shops/interaction/shopping.tscn" id="1_hb2un"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qfy7m"]
-radius = 93.0
+radius = 25.0
 
 [node name="HealthShop" type="Node2D"]
 script = ExtResource("1_6ysnu")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 scale = Vector2(5, 5)
 color = Color(1, 0, 1, 1)
 polygon = PackedVector2Array(-2, -3, 2, -3, 2, 2, -2, 2)
 
 [node name="Shopping" parent="." instance=ExtResource("1_hb2un")]
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shopping"]
 shape = SubResource("CircleShape2D_qfy7m")

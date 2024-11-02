@@ -17,8 +17,7 @@ func takeDamage(amount):
 
 
 func die():
-	pass
-	#get_tree().quit()
+	get_tree().quit()
 
 
 func _physics_process(_delta: float) -> void:
@@ -27,7 +26,7 @@ func _physics_process(_delta: float) -> void:
 		Input.get_action_strength("Down") - Input.get_action_strength("Up"),
 	)
 	
-	var speed = SPEED + Upgrades.speed * 50 - Currencies.zone * 50
+	var speed = SPEED + Upgrades.getSpeed() * 50 - Currencies.zone * 50
 	velocity = velocity.lerp(move.normalized() * speed, SMOOTH)
 	
 	move_and_slide()

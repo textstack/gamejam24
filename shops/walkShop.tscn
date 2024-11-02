@@ -15,6 +15,7 @@ color = Color(0, 0.755081, 0.0574996, 1)
 polygon = PackedVector2Array(-2, -3, 2, -3, 2, 2, -2, 2)
 
 [node name="Shopping" parent="." instance=ExtResource("2_rewjt")]
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shopping"]
 shape = SubResource("CircleShape2D_t6r72")

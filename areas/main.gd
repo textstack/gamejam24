@@ -2,6 +2,7 @@ extends Node2D
 
 var coin = preload("res://objects/coin.tscn")
 var enemy = preload("res://objects/enemy.tscn")
+@onready var hud = $CanvasLayer/hud
 
 func isOnScreen(pos):
 	var posAdjust = pos + $PlaySpace.position + get_viewport_rect().size / 2
@@ -60,7 +61,13 @@ func getRandomPlace(zone, frac):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	$CanvasLayer/RichTextLabel.text = "money: " + str(Currencies.money.total) + " health: " + str(Currencies.health.total) + " zone: " + str(Currencies.zone)
+	#$CanvasLayer/RichTextLabel.text = "money: " + str(Currencies.money.total) + " health: " + str(Currencies.health.total) + " zone: " + str(Currencies.zone)
+	hud._set_money(Currencies.money.total)
+	hud._set_health(Currencies.health.total)
+	if (Currencies.zone == -1):
+		hud._set_zone("SAFE")
+	else:
+		hud._set_zone(str(Currencies.zone))
 	$PlaySpace.position = -$PlaySpace/Player.position
 	
 	spawnObject(enemy, 0.2)

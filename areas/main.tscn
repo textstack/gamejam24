@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://df0hqk4bito00"]
+[gd_scene load_steps=13 format=4 uid="uid://df0hqk4bito00"]
 
 [ext_resource type="Script" path="res://areas/main.gd" id="1_dsbfv"]
 [ext_resource type="TileSet" uid="uid://c4lyv77js54p3" path="res://areas/main.tres" id="1_k7527"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://areas/zone_0.gd" id="5_8x1qq"]
 [ext_resource type="Script" path="res://areas/zone_2.gd" id="6_rbb40"]
 [ext_resource type="PackedScene" uid="uid://c488gyky68pun" path="res://shops/healthShop.tscn" id="6_uetyb"]
+[ext_resource type="PackedScene" uid="uid://cpcso4xmqvbj5" path="res://hud/hud.tscn" id="8_tdv5u"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jnggh"]
 vertices = PackedVector2Array(739, -829, 739, -8, 411.031, -389.992, 409.969, -810.039, -739.992, -829, -411.031, -806.961, -739.008, -8.99219, -409.969, -391.008)
@@ -433,6 +434,9 @@ position = Vector2(1168.75, 687.939)
 position = Vector2(1068, -534)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="hud" parent="CanvasLayer" instance=ExtResource("8_tdv5u")]
+metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
 z_index = 2

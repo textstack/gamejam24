@@ -6,6 +6,7 @@ class_name Player
 const SPEED = 250.0
 const SMOOTH = 0.6
 
+@onready var movement_ani = $AnimatedSprite2D
 
 func takeDamage(amount):
 	if not amount:
@@ -29,6 +30,21 @@ func _physics_process(_delta: float) -> void:
 	
 	var speed = SPEED + Upgrades.speed * 50 - Currencies.zone * 50
 	velocity = velocity.lerp(move.normalized() * speed, SMOOTH)
+	
+	
+	#Animation player for movement
+	if Input.is_action_pressed("Down"):
+		movement_ani.play("walk_down")
+	elif Input.is_action_pressed("Up"):
+		movement_ani.play("walk_up")
+	elif Input.is_action_pressed("Right"):
+		movement_ani.flip_h = false
+		movement_ani.play("walk")
+	elif Input.is_action_pressed("Left"):
+		movement_ani.flip_h = true
+		movement_ani.play("walk")
+	else:
+		movement_ani.play("idle_face")
 	
 	move_and_slide()
 

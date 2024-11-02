@@ -59,9 +59,10 @@ func getRandomPlace(zone, frac):
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$CanvasLayer/RichTextLabel.text = "money: " + str(Currencies.money.total) + " health: " + str(Currencies.health.total) + " zone: " + str(Currencies.zone)
 	$PlaySpace.position = -$PlaySpace/Player.position
 	
-	spawnObject(coin, 0.3)
 	spawnObject(enemy, 0.2)
+	spawnObject(coin, 0.3)
+	

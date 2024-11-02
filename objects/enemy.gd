@@ -5,7 +5,7 @@ var target
 var othersNear = {}
 
 
-const SPEED = 275
+const SPEED = 300
 const SLOW_SPEED = 50
 const SMOOTH = 0.05
 
@@ -25,28 +25,28 @@ func animate(speed):
 		$Sprite.play("default")
 		return
 	
-	var min = speed * 40
+	var minSp = speed * 40
 	
-	if velocity.length() <= min:
+	if velocity.length() <= minSp:
 		animate(speed / 2.0)
 		return
 		
-	if velocity.x > min:
+	if velocity.x > minSp:
 		$Sprite.flip_h = true
 		$Sprite.play("walk_west", speed)
 		return
 	
 	$Sprite.flip_h = false
 	
-	if velocity.x < -min:
+	if velocity.x < -minSp:
 		$Sprite.play("walk_west", speed)
 		return
 	
-	if velocity.y > min:
+	if velocity.y > minSp:
 		$Sprite.play("walk_south", speed)
 		return
 	
-	if velocity.y < -min:
+	if velocity.y < -minSp:
 		$Sprite.play("walk_north", speed)
 		return
 

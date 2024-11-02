@@ -1,9 +1,6 @@
 extends Area2D
 
 
-var heal = 1
-
-
 var player
 
 
@@ -24,4 +21,4 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _on_heal_timer_timeout() -> void:
 	if player:
-		Currencies.health.add(heal)
+		Currencies.health.add(Upgrades.getHeal())

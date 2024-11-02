@@ -5,7 +5,7 @@ extends Node2D
 @onready var label = $Label
 
 # Label Base text
-const base_text = "[E]"
+const base_text = "[E] "
 
 # Array fo interactables your around
 var active_areas = []

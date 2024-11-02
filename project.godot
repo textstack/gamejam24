@@ -14,6 +14,14 @@ config/name="gamejam24"
 config/features=PackedStringArray("4.3")
 config/icon="res://icon.png"
 
+[autoload]
+
+Currencies="*res://global/currencies.gd"
+
+[global_group]
+
+TrackingEnemy=""
+
 [input]
 
 Up={

@@ -1,7 +1,7 @@
 extends Area2D
 
 
-const HEAL = 1
+var heal = 1
 
 
 var player
@@ -12,16 +12,16 @@ func _on_body_entered(body: Node2D) -> void:
 		body.die()
 	
 	if body is Player:
+		Currencies.zone = -1
 		player = body
-		player.safe = true
 
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Player:
-		player.safe = false
+		Currencies.zone = 0
 		player = null
 
 
 func _on_heal_timer_timeout() -> void:
 	if player:
-		Currencies.health.add(HEAL)
+		Currencies.health.add(heal)

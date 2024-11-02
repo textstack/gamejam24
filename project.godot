@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 
 Currencies="*res://global/currencies.gd"
 InteractionManager="*res://shops/interaction/interactionManager.tscn"
+Upgrades="*res://global/upgrades.gd"
 
 [global_group]
 

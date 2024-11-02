@@ -7,10 +7,9 @@ var othersNear = {}
 
 const SPEED = 200
 const SLOW_SPEED = 50
-const SMOOTH = 0.1
+const SMOOTH = 0.05
 
 
-var amount = 5
 var lastHitPlayer = 0
 
 
@@ -24,20 +23,20 @@ func onCollide(collision):
 	var body = collision.get_collider()
 	if body is Player and Time.get_unix_time_from_system() - lastHitPlayer > 0.5:
 		lastHitPlayer = Time.get_unix_time_from_system()
-		body.takeDamage(amount)
-
-
-func _process(delta):
-	$RichTextLabel.text = str(target)
+		body.takeDamage(10 ** Currencies.zone)
 
 
 func goTowardsTarget():
-	if not target or target.safe:
+	if not target or Currencies.zone < 0:
 		velocity = velocity.lerp(Vector2(), SMOOTH)
 		return
 	
 	var diff = target.position - position
-	velocity = velocity.lerp(diff.normalized() * SPEED, SMOOTH)
+	var dot = target.velocity.normalized().dot(-diff.normalized())
+	var move = diff + target.velocity * (1 - dot)
+	velocity = velocity.lerp(move.normalized() * SPEED, SMOOTH)
+	
+	$RichTextLabel.text = str(move)
 
 
 func goAwayFromOthers():

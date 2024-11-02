@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://areas/zone_0.gd" id="5_8x1qq"]
 [ext_resource type="Script" path="res://areas/zone_2.gd" id="6_rbb40"]
 [ext_resource type="PackedScene" uid="uid://c488gyky68pun" path="res://shops/healthShop.tscn" id="6_uetyb"]
+[ext_resource type="PackedScene" uid="uid://d1hflghksqkc3" path="res://shops/weaponShop.tscn" id="7_yg1ts"]
 [ext_resource type="PackedScene" uid="uid://cpcso4xmqvbj5" path="res://hud/hud.tscn" id="8_tdv5u"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jnggh"]
@@ -167,6 +168,9 @@ position = Vector2(-339, -541)
 
 [node name="speed_energy_drink" parent="PlaySpace/Zone0/Shops" instance=ExtResource("6_uetyb")]
 position = Vector2(-259, -539)
+
+[node name="WeaponShop" parent="PlaySpace/Zone0/Shops" instance=ExtResource("7_yg1ts")]
+position = Vector2(-179, -520)
 
 [node name="Zone1" type="Node2D" parent="PlaySpace"]
 

@@ -8,5 +8,7 @@ extends Node2D
 func _ready() -> void:
 	interaction_area.Buy = Callable(self, "_on_interact")
 	
+	
+# where the actual changes to state of stuff happens
 func _on_interact():
 	print("You can now walk slightly faster")

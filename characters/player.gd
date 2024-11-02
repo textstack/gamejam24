@@ -41,6 +41,7 @@ func _physics_process(_delta: float) -> void:
 		movement_ani.flip_h = false
 		movement_ani.play("walk")
 	elif Input.is_action_pressed("Left"):
+		#flips animation horizontally
 		movement_ani.flip_h = true
 		movement_ani.play("walk")
 	else:

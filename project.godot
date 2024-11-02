@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="gamejam24"
-run/main_scene="res://areas/test.tscn"
+run/main_scene="res://hud/hud.tscn"
 config/features=PackedStringArray("4.3")
 config/icon="res://icon.png"
 
@@ -20,6 +20,10 @@ config/icon="res://icon.png"
 Currencies="*res://global/currencies.gd"
 InteractionManager="*res://shops/interaction/interactionManager.tscn"
 Upgrades="*res://global/upgrades.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [global_group]
 

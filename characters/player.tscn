@@ -99,7 +99,6 @@ autostart = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_le5md")
-animation = &"walk"
-frame_progress = 0.227786
+animation = &"idle_face"
 
 [connection signal="timeout" from="HPTimer" to="." method="_on_hp_timer_timeout"]

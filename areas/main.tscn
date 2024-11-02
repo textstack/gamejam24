@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://areas/zone_0.gd" id="5_8x1qq"]
 [ext_resource type="Script" path="res://areas/zone_2.gd" id="6_rbb40"]
 [ext_resource type="PackedScene" uid="uid://c488gyky68pun" path="res://shops/healthShop.tscn" id="6_uetyb"]
-[ext_resource type="PackedScene" uid="uid://d1hflghksqkc3" path="res://shops/weaponShop.tscn" id="7_nm6a4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jnggh"]
 vertices = PackedVector2Array(739, -829, 739, -8, 411.031, -389.992, 409.969, -810.039, -739.992, -829, -411.031, -806.961, -739.008, -8.99219, -409.969, -391.008)
@@ -62,9 +61,6 @@ tile_set = ExtResource("1_k7527")
 [node name="Player" parent="PlaySpace" instance=ExtResource("2_8ihch")]
 position = Vector2(38, -517)
 scale = Vector2(0.7, 0.7)
-
-[node name="WeaponShop" parent="PlaySpace" instance=ExtResource("7_nm6a4")]
-position = Vector2(-280, -530)
 
 [node name="SafeZone" parent="PlaySpace" instance=ExtResource("4_qaafj")]
 position = Vector2(1, -599)

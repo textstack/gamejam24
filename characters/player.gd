@@ -22,7 +22,13 @@ var pipe_equip
 var pistol_equip
 var shotgun_equip
 
+#Animations
 @onready var movement_ani = $AnimatedSprite2D
+
+#Attack sounds
+@onready var knife_sound = $knife_slash
+@onready var pipe_sound = $pipe_hit
+@onready var pistol_sound = $pistol_fire
 
 func takeDamage(amount):
 	if not amount:
@@ -99,12 +105,15 @@ func _physics_process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("attack") && (cur_weapon == 1):
 		print("Knife attack")
+		knife_sound.play()
 		knife_equip.attack()
 	elif Input.is_action_just_pressed("attack") && (cur_weapon == 2):
 		print("Pipe attack")
+		pipe_sound.play()
 		pipe_equip.attack()
 	elif Input.is_action_just_pressed("attack") && (cur_weapon == 3) && shoot_cooldown:
 		print("Pistol attack")
+		pistol_sound.play()
 		shoot_cooldown = false
 		var bullet_p = pistol_bullet.instantiate()
 		bullet_p.rotation = $Marker2D.rotation

@@ -14,6 +14,10 @@ var amount = 5
 var lastHitPlayer = 0
 
 
+func die():
+	queue_free()
+
+
 func onCollide(collision):
 	velocity = velocity.bounce(collision.get_normal())
 	
@@ -28,7 +32,7 @@ func _process(delta):
 
 
 func goTowardsTarget():
-	if not target:
+	if not target or target.safe:
 		velocity = velocity.lerp(Vector2(), SMOOTH)
 		return
 	

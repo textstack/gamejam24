@@ -7,6 +7,9 @@ const SPEED = 300.0
 const SMOOTH = 0.6
 
 
+var safe = false
+
+
 func takeDamage(amount):
 	if not amount:
 		amount = 1

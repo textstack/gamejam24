@@ -53,7 +53,7 @@ func _process(_delta: float) -> void:
 			pistol_equip = gun.instantiate()
 			add_child(pistol_equip)
 		if Currencies.weapon_tier >= 4:
-			pipe_equip.queue_free()
+			pistol_equip.queue_free()
 			print("now have rifle")
 			shotgun_equip = shotgun.instantiate()
 			add_child(shotgun_equip)
@@ -85,6 +85,16 @@ func _physics_process(_delta: float) -> void:
 		bullet_p.rotation = $Marker2D.rotation
 		bullet_p.global_position = $Marker2D.global_position
 		add_child(bullet_p)
+		
+		await get_tree().create_timer(1).timeout
+		shoot_cooldown = true
+	elif Input.is_action_just_pressed("attack") && (cur_weapon >= 4) && shoot_cooldown:
+		print("ShotGun attack")
+		shoot_cooldown = false
+		var bullet_s = shotGun_bullet.instantiate()
+		bullet_s.rotation = $Marker2D.rotation
+		bullet_s.global_position = $Marker2D.global_position
+		add_child(bullet_s)
 		
 		await get_tree().create_timer(1).timeout
 		shoot_cooldown = true

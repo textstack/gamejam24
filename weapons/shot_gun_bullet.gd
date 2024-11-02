@@ -1,7 +1,7 @@
 extends Area2D
 
 
-var speed = 400
+var speed = 500
 var damage = 4
 
 # Called when the node enters the scene tree for the first time.
@@ -19,3 +19,4 @@ func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("handle_hit"):
 		body.handle_hit(damage)
+	self.queue_free()

@@ -38,6 +38,12 @@ func die():
 	#get_tree().quit()
 
 func _process(_delta: float) -> void:
+	if Currencies.zone < 0:
+		$HPTimer.wait_time = 2
+		return
+	
+	$HPTimer.wait_time = 2.0 / (3 ** Currencies.zone)
+	
 	if cur_weapon != Currencies.weapon_tier:
 		cur_weapon = Currencies.weapon_tier
 		if Currencies.weapon_tier == 1:
@@ -115,14 +121,6 @@ func _physics_process(_delta: float) -> void:
 		
 		await get_tree().create_timer(1).timeout
 		shoot_cooldown = true
-
-
-func _process(_delta: float) -> void:
-	if Currencies.zone < 0:
-		$HPTimer.wait_time = 2
-		return
-	
-	$HPTimer.wait_time = 2.0 / (3 ** Currencies.zone)
 
 
 func _on_hp_timer_timeout() -> void:

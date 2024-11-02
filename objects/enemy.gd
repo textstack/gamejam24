@@ -19,6 +19,41 @@ var wanderVel
 var wanderCurl
 
 
+func animate(speed):
+	if speed < 0.1:
+		$Sprite.play("default")
+		return
+	
+	var min = speed * 40
+	
+	if velocity.length() <= min:
+		animate(speed / 2.0)
+		return
+		
+	if velocity.x > min:
+		$Sprite.flip_h = true
+		$Sprite.play("walk_west", speed)
+		return
+	
+	$Sprite.flip_h = false
+	
+	if velocity.x < -min:
+		$Sprite.play("walk_west", speed)
+		return
+	
+	if velocity.y > min:
+		$Sprite.play("walk_south", speed)
+		return
+	
+	if velocity.y < -min:
+		$Sprite.play("walk_north", speed)
+		return
+
+
+func _process(_delta: float) -> void:
+	animate(1)
+
+
 func die():
 	if point:
 		point.visible = true

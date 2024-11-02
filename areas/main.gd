@@ -18,7 +18,7 @@ func isOnScreen(pos):
 func spawnObject(type, frac):
 	var inst = type.instantiate()
 	var zone = randi_range(0, 2)
-	var point = getRandomPlace(zone, frac)
+	var point = getRandomPlace(zone, frac + zone * 0.1)
 	
 	if not point:
 		return

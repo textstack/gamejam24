@@ -11,6 +11,8 @@ radius = 200.0
 radius = 60.0
 
 [node name="Enemy" type="CharacterBody2D" groups=["TrackingEnemy"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_qmhxg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -21,6 +23,8 @@ color = Color(1, 0.164706, 0.192157, 1)
 polygon = PackedVector2Array(0, -10, 7, -7, 10, 0, 7, 7, 0, 10, -7, 7, -10, 0, -7, -7)
 
 [node name="Sight" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
 shape = SubResource("CircleShape2D_820nc")

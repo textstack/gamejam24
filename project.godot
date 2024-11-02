@@ -17,12 +17,12 @@ config/icon="res://icon.png"
 [autoload]
 
 Currencies="*res://global/currencies.gd"
+InteractionManager="*res://shops/interaction/interactionManager.tscn"
 
 [global_group]
 
 TrackingEnemy=""
-InteractionManager="*res://shops/interaction/interactionManager.tscn"
-
+Trackable=""
 
 [input]
 

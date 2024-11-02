@@ -24,7 +24,7 @@ func onCollide(collision):
 
 
 func _process(delta):
-	$RichTextLabel.text = str(othersNear)
+	$RichTextLabel.text = str(target)
 
 
 func goTowardsTarget():
@@ -59,12 +59,12 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_sight_body_entered(body: Node2D) -> void:
-	if body is Player:
+	if body.is_in_group("Trackable"):
 		target = body
 
 
 func _on_sight_body_exited(body: Node2D) -> void:
-	if body is Player:
+	if body == target:
 		target = null
 
 

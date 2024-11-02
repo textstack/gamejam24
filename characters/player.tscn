@@ -7,7 +7,7 @@ size = Vector2(40, 40)
 
 [node name="Player" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["player"]]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["Trackable", "player"]]
 collision_layer = 2
 script = ExtResource("1_o87eb")
 

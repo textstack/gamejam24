@@ -11,9 +11,17 @@ const SMOOTH = 0.05
 
 
 var lastHitPlayer = 0
+var lastSeenPlayer
+var point
+var zone = 0
+var doWander = false
+var wanderVel
+var wanderCurl
 
 
 func die():
+	if point:
+		point.visible = true
 	queue_free()
 
 
@@ -23,20 +31,64 @@ func onCollide(collision):
 	var body = collision.get_collider()
 	if body is Player and Time.get_unix_time_from_system() - lastHitPlayer > 0.5:
 		lastHitPlayer = Time.get_unix_time_from_system()
-		body.takeDamage(10 ** Currencies.zone)
+		body.takeDamage(10 ** zone)
+
+
+func wander():
+	var move = Vector2()
+	if doWander:
+		if not wanderVel:
+			wanderVel = Vector2(randf_range(-1, 1), randf_range(-1, 1))
+			wanderCurl = randf_range(-0.02, 0.02)
+		move = wanderVel
+		
+		wanderVel = wanderVel.rotated(wanderCurl)
+	elif wanderVel:
+		wanderVel = null
+	
+	velocity = velocity.lerp(move * SLOW_SPEED, SMOOTH)
+
+
+func goTowardsLastSeen():
+	if target:
+		$CanSeePlayer.target_position = target.position - position
+		
+		if $CanSeePlayer.get_collider() == target:
+			lastSeenPlayer = target.position
+			return false
+	
+	if not lastSeenPlayer:
+		return true
+	
+	var move = lastSeenPlayer - position
+	if move.length() < 40:
+		wander()
+		return true
+	
+	velocity = velocity.lerp(move.normalized() * SPEED, SMOOTH)
+	return true
 
 
 func goTowardsTarget():
-	if not target or Currencies.zone < 0:
-		velocity = velocity.lerp(Vector2(), SMOOTH)
+	if Currencies.zone < 0:
+		lastSeenPlayer = null
+		wander()
 		return
+	
+	if goTowardsLastSeen():
+		return
+		
+	if not target:
+		wander()
+		return
+	
+	if point:
+		point.visible = true
 	
 	var diff = target.position - position
 	var dot = target.velocity.normalized().dot(-diff.normalized())
 	var move = diff + target.velocity * (1 - dot)
 	velocity = velocity.lerp(move.normalized() * SPEED, SMOOTH)
-	
-	$RichTextLabel.text = str(move)
 
 
 func goAwayFromOthers():
@@ -79,3 +131,8 @@ func _on_move_away_body_entered(body: Node2D) -> void:
 func _on_move_away_body_exited(body: Node2D) -> void:
 	if body.is_in_group("TrackingEnemy"):
 		othersNear.erase(body.get_instance_id())
+
+
+func _on_wander_timer_timeout() -> void:
+	doWander = not doWander
+	$WanderTimer.wait_time = randf_range(1.5, 3)

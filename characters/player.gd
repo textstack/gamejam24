@@ -22,6 +22,7 @@ var pipe_equip
 var pistol_equip
 var shotgun_equip
 
+@onready var movement_ani = $AnimatedSprite2D
 
 func takeDamage(amount):
 	if not amount:
@@ -33,7 +34,8 @@ func takeDamage(amount):
 
 
 func die():
-	get_tree().quit()
+	pass
+	#get_tree().quit()
 
 func _process(_delta: float) -> void:
 	if cur_weapon != Currencies.weapon_tier:
@@ -66,6 +68,21 @@ func _physics_process(_delta: float) -> void:
 	
 	var speed = SPEED + Upgrades.speed * 50 - Currencies.zone * 50
 	velocity = velocity.lerp(move.normalized() * speed, SMOOTH)
+	
+	
+	#Animation player for movement
+	if Input.is_action_pressed("Down"):
+		movement_ani.play("walk_down")
+	elif Input.is_action_pressed("Up"):
+		movement_ani.play("walk_up")
+	elif Input.is_action_pressed("Right"):
+		movement_ani.flip_h = false
+		movement_ani.play("walk")
+	elif Input.is_action_pressed("Left"):
+		movement_ani.flip_h = true
+		movement_ani.play("walk")
+	else:
+		movement_ani.play("idle_face")
 	
 	move_and_slide()
 	
@@ -100,9 +117,17 @@ func _physics_process(_delta: float) -> void:
 		shoot_cooldown = true
 
 
+func _process(_delta: float) -> void:
+	if Currencies.zone < 0:
+		$HPTimer.wait_time = 2
+		return
+	
+	$HPTimer.wait_time = 2.0 / (3 ** Currencies.zone)
+
+
 func _on_hp_timer_timeout() -> void:
 	if Currencies.zone < 0:
 		return
 	
-	takeDamage(5 ** Currencies.zone)
+	takeDamage(1)
 	

@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpcso4xmqvbj5"]
+
+[ext_resource type="Script" path="res://hud/hud.gd" id="1_mbj73"]
+[ext_resource type="Texture2D" uid="uid://xvktacs34x35" path="res://art/hud/inventory.png" id="2_mlxtb"]
+[ext_resource type="Theme" uid="uid://gpq6tnhebh5s" path="res://hud/hud.tres" id="3_ho7gu"]
+
+[node name="hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mbj73")
+
+[node name="hud_inventory" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -648.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_mlxtb")
+expand_mode = 3
+
+[node name="health" type="RichTextLabel" parent="hud_inventory"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 610.0
+offset_right = 207.0
+offset_bottom = 650.0
+theme = ExtResource("3_ho7gu")
+bbcode_enabled = true
+text = "HEALTH: 100"
+
+[node name="money" type="RichTextLabel" parent="hud_inventory"]
+layout_mode = 0
+offset_left = 239.0
+offset_top = 610.0
+offset_right = 307.0
+offset_bottom = 641.0
+theme = ExtResource("3_ho7gu")
+bbcode_enabled = true
+text = "$ 0"
+
+[node name="zone" type="RichTextLabel" parent="hud_inventory"]
+layout_mode = 0
+offset_left = 945.0
+offset_top = 602.0
+offset_right = 1117.0
+offset_bottom = 642.0
+theme = ExtResource("3_ho7gu")
+bbcode_enabled = true
+text = "ZONE: SAFE"
+
+[node name="current_weapon" type="TextureRect" parent="hud_inventory"]
+layout_mode = 0
+offset_left = 842.0
+offset_top = 593.0
+offset_right = 918.0
+offset_bottom = 637.0

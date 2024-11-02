@@ -5,10 +5,11 @@ var target
 var othersNear = {}
 
 
-const SPEED = 275
+const SPEED = 300
 const SLOW_SPEED = 50
 const SMOOTH = 0.05
 
+var health = 3
 
 var lastHitPlayer = 0
 var lastSeenPlayer
@@ -24,28 +25,28 @@ func animate(speed):
 		$Sprite.play("default")
 		return
 	
-	var min = speed * 40
+	var minSp = speed * 40
 	
-	if velocity.length() <= min:
+	if velocity.length() <= minSp:
 		animate(speed / 2.0)
 		return
 		
-	if velocity.x > min:
+	if velocity.x > minSp:
 		$Sprite.flip_h = true
 		$Sprite.play("walk_west", speed)
 		return
 	
 	$Sprite.flip_h = false
 	
-	if velocity.x < -min:
+	if velocity.x < -minSp:
 		$Sprite.play("walk_west", speed)
 		return
 	
-	if velocity.y > min:
+	if velocity.y > minSp:
 		$Sprite.play("walk_south", speed)
 		return
 	
-	if velocity.y < -min:
+	if velocity.y < -minSp:
 		$Sprite.play("walk_north", speed)
 		return
 
@@ -59,6 +60,11 @@ func die():
 		point.visible = true
 	queue_free()
 
+func handle_hit(damage: int):
+	health -= damage
+	print("Enemy was hit " + str(health))
+	if health <= 0:
+		die()
 
 func onCollide(collision):
 	velocity = velocity.bounce(collision.get_normal())
@@ -138,7 +144,7 @@ func goAwayFromOthers():
 	velocity = velocity.lerp(totalDiff.normalized() * -SLOW_SPEED, SMOOTH)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var collision = get_last_slide_collision()
 	if collision:
 		onCollide(collision)

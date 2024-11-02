@@ -5,7 +5,7 @@ extends Node2D
 @onready var label = $Label
 
 # Label Base text
-const base_text = "[E]"
+const base_text = "[E] "
 
 # Array fo interactables your around
 var active_areas = []
@@ -23,7 +23,7 @@ func unregister_area(area: shopping):
 		
 		
 # Redraws label using whichever interactable your closest too
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if active_areas.size() > 0 && can_interact:
 		active_areas.sort_custom(_sort_by_distance_to_player)
 		label.text = str(active_areas[0].shop_cost) + '$ ' + base_text + active_areas[0].action_name

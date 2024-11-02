@@ -14,8 +14,8 @@ func _init(startTotal, startMax, currencyName_, icon_):
 
 
 func add(amount):
-	if total + amount > highestAllowed:
-		total = highestAllowed
+	if total + amount > getMax():
+		total = getMax()
 		return false
 	
 	total += amount

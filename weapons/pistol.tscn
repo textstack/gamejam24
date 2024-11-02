@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://w0v8pt8vab18"]
+
+[ext_resource type="Texture2D" uid="uid://bdss8qwd1qc0k" path="res://weapons/real_pistol.webp" id="1_fv4hp"]
+
+[node name="Pistol" type="Sprite2D"]
+position = Vector2(20, 0)
+scale = Vector2(5.25, 5.1)
+texture = ExtResource("1_fv4hp")

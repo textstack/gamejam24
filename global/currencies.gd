@@ -10,4 +10,4 @@ var zone = 0
 func _ready() -> void:
 	money = Currency.new(0, "Money", "")
 	weapon_tier = 0
-	health = CurrencyMax.new(6, 6, "Health", "")
+	health = Health.new(6, 6, "Health", "")

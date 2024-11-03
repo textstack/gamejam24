@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bh3j7sa80eoq3"]
+
+[ext_resource type="Texture2D" uid="uid://plrpqf20yiwl" path="res://art/rand/Pistol Shooting Animation Frames/Zombie-Tileset---_0372_Capa-373.png" id="1_72qch"]
+[ext_resource type="Script" path="res://weapons/pistol_test.gd" id="1_tldur"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ktw7l"]
+radius = 6.0
+height = 28.0
+
+[node name="RigidBody2D" type="RigidBody2D" groups=["bullet"]]
+collision_layer = 8
+collision_mask = 8
+contact_monitor = true
+max_contacts_reported = 30
+script = ExtResource("1_tldur")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_72qch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ktw7l")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(3, 2.38419e-07)
+scale = Vector2(0.25, 0.4)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

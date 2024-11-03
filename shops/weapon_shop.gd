@@ -21,8 +21,8 @@ func _on_interact():
 		cost *= 3
 		$Shopping.shop_cost = cost
 		print("Weapon Gained")
-		purchase_sound.play()
 		if Currencies.weapon_tier < 4:
+			purchase_sound.play()
 			Currencies.weapon_tier += 1
 		print(Currencies.weapon_tier)
 		

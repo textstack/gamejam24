@@ -5,6 +5,7 @@ var amount = 1
 var zone = 0
 var point
 
+@onready var purchase_sound  = $AudioStreamPlayer2D
 
 func canSpawn(point_):
 	return point_.visible
@@ -25,6 +26,7 @@ func setup(zone_, point_):
 
 func _on_body_entered(body: Node) -> void:
 	if body is Player:
+		
 		Currencies.money.add(5 ** zone)
 		queue_free()
 		if point:

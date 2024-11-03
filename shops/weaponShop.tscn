@@ -1,20 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1hflghksqkc3"]
+[gd_scene load_steps=6 format=3 uid="uid://d1hflghksqkc3"]
 
 [ext_resource type="Script" path="res://shops/weapon_shop.gd" id="1_kg48v"]
 [ext_resource type="PackedScene" uid="uid://l5dil5v2fj18" path="res://shops/interaction/shopping.tscn" id="2_fptcg"]
+[ext_resource type="Texture2D" uid="uid://c6mi0wvugvb7d" path="res://art/rand/Zombie-Tileset---_0124_Capa-125.png" id="2_l53t0"]
+[ext_resource type="Texture2D" uid="uid://bb7j4qcynrvjr" path="res://art/rand/Zombie-Tileset---_0125_Capa-126.png" id="3_8avbp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lwsdy"]
-radius = 90.0222
+radius = 26.4764
 
 [node name="WeaponShop" type="Node2D"]
+position = Vector2(0, 19)
 script = ExtResource("1_kg48v")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -28)
+scale = Vector2(1.625, 1.5)
+texture = ExtResource("2_l53t0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, -9)
+scale = Vector2(1.83333, 1.6)
+texture = ExtResource("3_8avbp")
+
 [node name="Polygon2D" type="Polygon2D" parent="."]
-scale = Vector2(5, 5)
+visible = false
+position = Vector2(0, -6)
+scale = Vector2(3, 3)
 color = Color(0.878107, 0.543915, 0.251029, 1)
-polygon = PackedVector2Array(-2, -3, 2, -3, 2, 2, -2, 2)
+polygon = PackedVector2Array(-3, -4.33333, 0, -6.33333, 3, -4.66667, 2, 2, -2, 2)
 
 [node name="Shopping" parent="." instance=ExtResource("2_fptcg")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shopping"]
+position = Vector2(1, -19)
 shape = SubResource("CircleShape2D_lwsdy")

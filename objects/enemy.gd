@@ -92,6 +92,8 @@ func onCollide(collision):
 	if body is Player and Time.get_unix_time_from_system() - lastHitPlayer > 0.5:
 		lastHitPlayer = Time.get_unix_time_from_system()
 		body.takeDamage(10 ** zone)
+		
+		
 
 
 func wander():
@@ -196,3 +198,9 @@ func _on_move_away_body_exited(body: Node2D) -> void:
 func _on_wander_timer_timeout() -> void:
 	doWander = not doWander
 	$WanderTimer.wait_time = randf_range(1.5, 3)
+
+func _on_bullet_hit_box_body_entered(body: Node2D) -> void:
+	if body.has_method("_on_visible_on_screen_enabler_2d_screen_exited"):
+		handle_hit(body.damage)
+	body.queue_free()
+	self.queue_free()

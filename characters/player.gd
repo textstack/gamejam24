@@ -7,11 +7,12 @@ const SPEED = 250.0
 const SMOOTH = 0.6
 @export var knife = preload("res://weapons/knife.tscn")
 @export var pipe = preload("res://weapons/pipe.tscn")
-@export var pistol_bullet = preload("res://weapons/pistol_bullet.tscn")
+@export var pistol_bullet = preload("res://weapons/pistol_test.tscn")
 @export var gun = preload("res://weapons/pistol.tscn")
 @export var shotgun = preload("res://weapons/shotgun.tscn")
-@export var shotGun_bullet = preload("res://weapons/shotGun_bullet.tscn")
+@export var shotGun_bullet = preload("res://weapons/shot_bul.tscn")
 
+signal pistolB(bullet, velo, posit)
 
 var cur_weapon = 0
 var shoot_cooldown = true
@@ -107,19 +108,21 @@ func _physics_process(_delta: float) -> void:
 		print("Pistol attack")
 		shoot_cooldown = false
 		var bullet_p = pistol_bullet.instantiate()
-		bullet_p.rotation = $Marker2D.rotation
-		bullet_p.global_position = $Marker2D.global_position
-		add_child(bullet_p)
+		var p_pos = pistol_equip.global_position
+		var vel = mouse_pos - p_pos
+		pistolB.emit(bullet_p, vel, p_pos)
 		
 		await get_tree().create_timer(1).timeout
 		shoot_cooldown = true
+		
 	elif Input.is_action_just_pressed("attack") && (cur_weapon >= 4) && shoot_cooldown:
 		print("ShotGun attack")
 		shoot_cooldown = false
 		var bullet_s = shotGun_bullet.instantiate()
-		bullet_s.rotation = $Marker2D.rotation
-		bullet_s.global_position = $Marker2D.global_position
-		add_child(bullet_s)
+		var p_pos = shotgun_equip.global_position
+		var vel = mouse_pos - p_pos
+		pistolB.emit(bullet_s, vel, p_pos)
+
 		await get_tree().create_timer(1).timeout
 		shoot_cooldown = true
 

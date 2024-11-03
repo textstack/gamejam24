@@ -501,3 +501,4 @@ text = "adwasd"
 [connection signal="body_exited" from="PlaySpace/Zone0" to="PlaySpace/Zone0" method="_on_body_exited"]
 [connection signal="body_entered" from="PlaySpace/Zone2" to="PlaySpace/Zone2" method="_on_body_entered"]
 [connection signal="body_exited" from="PlaySpace/Zone2" to="PlaySpace/Zone2" method="_on_body_exited"]
+[connection signal="pistolB" from="PlaySpace/Player" to="." method="_on_player_pistol_b"]

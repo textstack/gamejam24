@@ -91,7 +91,7 @@ polygon = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
 shape = SubResource("CircleShape2D_uaf1f")
 
 [node name="HPTimer" type="Timer" parent="."]
-wait_time = 50.0
+wait_time = 2.0
 autostart = true
 
 [node name="Marker2D" type="Marker2D" parent="."]

@@ -1,6 +1,15 @@
-[gd_resource type="SpriteFrames" load_steps=15 format=3 uid="uid://ctp2nc4wudacc"]
+[gd_resource type="SpriteFrames" load_steps=24 format=3 uid="uid://ctp2nc4wudacc"]
 
 [ext_resource type="Texture2D" uid="uid://bwq2djb1o1qpw" path="res://art/zombies/big zombie/big_zombie_walking.png" id="1_oqbi0"]
+[ext_resource type="Texture2D" uid="uid://ccncaervf6a0c" path="res://art/rand/Damaged Big Zombie Animation Frames/Zombie-Tileset---_0421_Capa-422.png" id="2_vkvc1"]
+[ext_resource type="Texture2D" uid="uid://cos3qkiipwky7" path="res://art/rand/Damaged Big Zombie Animation Frames/Zombie-Tileset---_0422_Capa-423.png" id="3_14yh5"]
+[ext_resource type="Texture2D" uid="uid://chjwnmwu8k1d2" path="res://art/rand/Damaged Big Zombie Animation Frames/Zombie-Tileset---_0423_Capa-424.png" id="4_khbdo"]
+[ext_resource type="Texture2D" uid="uid://bwnreoonq0n84" path="res://art/rand/Damaged Big Zombie Animation Frames/Zombie-Tileset---_0427_Capa-428.png" id="5_ipnri"]
+[ext_resource type="Texture2D" uid="uid://l1lfe3dg6uwq" path="res://art/rand/Damaged Big Zombie Animation Frames/Zombie-Tileset---_0428_Capa-429.png" id="6_50fs2"]
+[ext_resource type="Texture2D" uid="uid://dp1u8uqbwcrdv" path="res://art/rand/Damaged Big Zombie Animation Frames/Zombie-Tileset---_0429_Capa-430.png" id="7_r2e5p"]
+[ext_resource type="Texture2D" uid="uid://bmrdk2sbntqca" path="res://art/rand/Damaged Big Zombie Animation Frames/Zombie-Tileset---_0424_Capa-425.png" id="8_jh7nk"]
+[ext_resource type="Texture2D" uid="uid://ubwab1yaug85" path="res://art/rand/Damaged Big Zombie Animation Frames/Zombie-Tileset---_0425_Capa-426.png" id="9_6dnbs"]
+[ext_resource type="Texture2D" uid="uid://b6xn5buoepsyk" path="res://art/rand/Damaged Big Zombie Animation Frames/Zombie-Tileset---_0426_Capa-427.png" id="10_dbkmj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fe8jk"]
 atlas = ExtResource("1_oqbi0")
@@ -62,6 +71,48 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vkvc1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_14yh5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_khbdo")
+}],
+"loop": true,
+"name": &"hurt_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ipnri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_50fs2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_r2e5p")
+}],
+"loop": true,
+"name": &"hurt_north",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_jh7nk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6dnbs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dbkmj")
+}],
+"loop": true,
+"name": &"hurt_west",
 "speed": 5.0
 }, {
 "frames": [{

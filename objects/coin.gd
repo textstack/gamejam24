@@ -6,6 +6,7 @@ var amount = 1
 var zone = 0
 var point
 
+@onready var coin_sound = $Pick_up
 
 func _on_body_entered(body: Node) -> void:
 	if body is Player:
@@ -13,3 +14,4 @@ func _on_body_entered(body: Node) -> void:
 		queue_free()
 		if point:
 			point.visible = true
+		

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqqdl0sk5peos"]
+[gd_scene load_steps=11 format=3 uid="uid://cqqdl0sk5peos"]
 
 [ext_resource type="Script" path="res://objects/coin.gd" id="1_tbttx"]
 [ext_resource type="Texture2D" uid="uid://prv1pteajnar" path="res://art/rand/coin.png" id="2_6bax1"]
+[ext_resource type="AudioStream" uid="uid://bkgeqn4812tlo" path="res://sound_effects/currency/retro-coin-1-236677.mp3" id="3_bp6tc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u6eel"]
 atlas = ExtResource("2_6bax1")
@@ -72,5 +73,10 @@ polygon = PackedVector2Array(0, -10, 7, -7, 10, 0, 7, 7, 0, 10, -7, 7, -10, 0, -
 visible = false
 offset_right = 357.0
 offset_bottom = 159.0
+
+[node name="Pick_up" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_bp6tc")
+volume_db = 5.824
+panning_strength = 1.6
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

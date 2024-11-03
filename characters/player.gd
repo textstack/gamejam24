@@ -133,7 +133,6 @@ func _physics_process(_delta: float) -> void:
 		bullet_s.rotation = $Marker2D.rotation
 		bullet_s.global_position = $Marker2D.global_position
 		add_child(bullet_s)
-		
 		await get_tree().create_timer(1).timeout
 		shoot_cooldown = true
 

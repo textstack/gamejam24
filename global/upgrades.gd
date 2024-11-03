@@ -11,12 +11,12 @@ func _ready() -> void:
 	newUpgrade("hopefulness", "health", 50, 1.3, 12)
 	newUpgrade("new_hobby", "health", 250, 1.3, 60)
 	
-	newUpgrade("clean_water", "heal", 10, 1.8, 1)
-	newUpgrade("bandages", "heal", 75, 1.6, 5)
+	newUpgrade("clean_water", "heal", 10, 1.4, 1)
+	newUpgrade("bandages", "heal", 75, 1.4, 5)
 	newUpgrade("first_aid", "heal", 350, 1.4, 25)
 	
-	newUpgrade("good_food", "speed", 50, 2, 5)
-	newUpgrade("energy_drink", "speed", 150, 1.8, 10)
+	newUpgrade("good_food", "speed", 30, 2, 10)
+	newUpgrade("energy_drink", "speed", 150, 2, 25)
 
 
 func getType(type):

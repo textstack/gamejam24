@@ -34,11 +34,13 @@ func _on_continue_pressed() -> void:
 
 func _on_reset_pressed() -> void:
 	resume()
+	Currencies.resetCurrencies()
 	# out reset function call here
 	get_tree().reload_current_scene()
 
 func _on_main_menu_pressed() -> void:
 	get_tree().paused = false
+	Currencies.resetCurrencies()
 	get_tree().change_scene_to_file("res://title_screen/title_scene.tscn")
 
 func _on_quit_pressed() -> void:

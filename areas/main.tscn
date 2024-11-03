@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://df0hqk4bito00"]
+[gd_scene load_steps=19 format=4 uid="uid://df0hqk4bito00"]
 
 [ext_resource type="Script" path="res://areas/main.gd" id="1_dsbfv"]
 [ext_resource type="TileSet" uid="uid://c4lyv77js54p3" path="res://areas/main.tres" id="1_k7527"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d1hflghksqkc3" path="res://shops/weaponShop.tscn" id="7_yg1ts"]
 [ext_resource type="AudioStream" uid="uid://dqi3jd53d5err" path="res://sound_effects/ambience/scary-ambience-59002.mp3" id="8_65kxl"]
 [ext_resource type="PackedScene" uid="uid://cpcso4xmqvbj5" path="res://hud/hud.tscn" id="8_tdv5u"]
+[ext_resource type="PackedScene" uid="uid://7cdw2ntlsmyi" path="res://pause_screen/pause_scene.tscn" id="12_ee1ox"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jnggh"]
 vertices = PackedVector2Array(739, -829, 739, -8, 411.031, -389.992, 409.969, -810.039, -739.992, -829, -411.031, -806.961, -739.008, -8.99219, -409.969, -391.008)
@@ -502,6 +503,10 @@ text = "adwasd"
 stream = ExtResource("8_65kxl")
 autoplay = true
 parameters/looping = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PauseScene" parent="CanvasLayer2" instance=ExtResource("12_ee1ox")]
 
 [connection signal="body_entered" from="PlaySpace/Zone0" to="PlaySpace/Zone0" method="_on_body_entered"]
 [connection signal="body_exited" from="PlaySpace/Zone0" to="PlaySpace/Zone0" method="_on_body_exited"]

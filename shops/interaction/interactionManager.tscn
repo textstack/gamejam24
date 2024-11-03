@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2kow2ybnrwi2"]
+[gd_scene load_steps=4 format=3 uid="uid://d2kow2ybnrwi2"]
 
 [ext_resource type="Script" path="res://shops/interaction/interaction_manager.gd" id="1_dijis"]
+[ext_resource type="FontFile" uid="uid://cknm4tdaunqe8" path="res://fonts/Retro Gaming.ttf" id="2_467q2"]
+
+[sub_resource type="Theme" id="Theme_bagqx"]
+default_font = ExtResource("2_467q2")
 
 [node name="InteractionManager" type="Node2D"]
 script = ExtResource("1_dijis")
@@ -14,6 +18,7 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme = SubResource("Theme_bagqx")
 text = "[E]"
 horizontal_alignment = 1
 vertical_alignment = 1

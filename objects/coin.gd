@@ -1,6 +1,5 @@
 extends Area2D
 
-
 var amount = 1
 
 var zone = 0

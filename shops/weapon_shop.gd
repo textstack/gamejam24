@@ -9,7 +9,7 @@ var cost
 
 func _ready() -> void:
 	interaction_area.Buy = Callable(self, "_on_interact")
-	cost = 20
+	cost = 1
 	$Shopping.shop_cost = cost
 	$Shopping.action_name = "+weapon"
 

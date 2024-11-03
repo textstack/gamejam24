@@ -7,16 +7,27 @@ var health = {}
 
 
 func _ready() -> void:
-	newUpgrade("small_sketch", "health", 5, 1.3, 3)
-	newUpgrade("hopefulness", "health", 50, 1.3, 12)
-	newUpgrade("new_hobby", "health", 250, 1.3, 60)
+	newUpgrade("small_sketch", "health", 4, 1.3, 3)
+	newUpgrade("hopefulness", "health", 40, 1.3, 12)
+	newUpgrade("new_hobby", "health", 200, 1.3, 60)
 	
-	newUpgrade("clean_water", "heal", 10, 1.4, 1)
-	newUpgrade("bandages", "heal", 75, 1.4, 5)
-	newUpgrade("first_aid", "heal", 350, 1.4, 25)
+	newUpgrade("clean_water", "heal", 8, 1.4, 1)
+	newUpgrade("bandages", "heal", 60, 1.4, 5)
+	newUpgrade("first_aid", "heal", 300, 1.4, 25)
 	
-	newUpgrade("good_food", "speed", 30, 2, 25)
+	newUpgrade("good_food", "speed", 25, 2, 25)
 	newUpgrade("energy_drink", "speed", 400, 2, 50)
+
+
+func reset():
+	for i in speed:
+		speed[i].reset()
+	
+	for i in heal:
+		heal[i].reset()
+	
+	for i in health:
+		health[i].reset()
 
 
 func getType(type):

@@ -21,6 +21,10 @@ func _init(upgradeName_, type_, basePrice_, priceIncrease_, increase_):
 	increase = increase_
 
 
+func reset():
+	amount = 0
+
+
 func getName():
 	return upgradeName
 

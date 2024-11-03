@@ -19,14 +19,12 @@ func pause():
 	print("Pausing...") # Debug print
 	show()
 	get_tree().paused = true
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	showing = true
 
 func resume():
 	print("Resuming...") # Debug print
 	hide()
 	get_tree().paused = false
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	showing = false
 
 func _on_continue_pressed() -> void:
@@ -35,6 +33,7 @@ func _on_continue_pressed() -> void:
 func _on_reset_pressed() -> void:
 	resume()
 	Currencies.resetCurrencies()
+	Upgrades.reset()
 	# out reset function call here
 	get_tree().reload_current_scene()
 

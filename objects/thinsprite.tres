@@ -1,6 +1,14 @@
-[gd_resource type="SpriteFrames" load_steps=15 format=3 uid="uid://bsiot8mr36ex3"]
+[gd_resource type="SpriteFrames" load_steps=23 format=3 uid="uid://bsiot8mr36ex3"]
 
 [ext_resource type="Texture2D" uid="uid://c6wkf22h7o34i" path="res://art/zombies/skinny_zombie/skinny_zombie_walking.png" id="1_5kh6i"]
+[ext_resource type="Texture2D" uid="uid://bwk4u2goraw6q" path="res://art/rand/Damaged Skinny Zombie Animation Frames/Zombie-Tileset---_0403_Capa-404.png" id="2_pwtrm"]
+[ext_resource type="Texture2D" uid="uid://cf0w4daivnoob" path="res://art/rand/Damaged Skinny Zombie Animation Frames/Zombie-Tileset---_0404_Capa-405.png" id="3_6emcp"]
+[ext_resource type="Texture2D" uid="uid://4cj71esvrlvl" path="res://art/rand/Damaged Skinny Zombie Animation Frames/Zombie-Tileset---_0405_Capa-406.png" id="4_ej2lg"]
+[ext_resource type="Texture2D" uid="uid://cv68tv28u7nk3" path="res://art/rand/Damaged Skinny Zombie Animation Frames/Zombie-Tileset---_0409_Capa-410.png" id="5_h075a"]
+[ext_resource type="Texture2D" uid="uid://cgutcshe13hs2" path="res://art/rand/Damaged Skinny Zombie Animation Frames/Zombie-Tileset---_0410_Capa-411.png" id="6_k16tj"]
+[ext_resource type="Texture2D" uid="uid://4wyll36he7xa" path="res://art/rand/Damaged Skinny Zombie Animation Frames/Zombie-Tileset---_0411_Capa-412.png" id="7_s2hla"]
+[ext_resource type="Texture2D" uid="uid://yipe3025y7dj" path="res://art/rand/Damaged Skinny Zombie Animation Frames/Zombie-Tileset---_0406_Capa-407.png" id="8_6ryu8"]
+[ext_resource type="Texture2D" uid="uid://dipn3hxwmp6se" path="res://art/rand/Damaged Skinny Zombie Animation Frames/Zombie-Tileset---_0407_Capa-408.png" id="9_l4l2d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lg8hw"]
 atlas = ExtResource("1_5kh6i")
@@ -62,6 +70,48 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pwtrm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6emcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ej2lg")
+}],
+"loop": true,
+"name": &"hurt_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_h075a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_k16tj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_s2hla")
+}],
+"loop": true,
+"name": &"hurt_north",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_6ryu8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_l4l2d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_l4l2d")
+}],
+"loop": true,
+"name": &"hurt_west",
 "speed": 5.0
 }, {
 "frames": [{

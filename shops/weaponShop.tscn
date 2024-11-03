@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1hflghksqkc3"]
+[gd_scene load_steps=7 format=3 uid="uid://d1hflghksqkc3"]
 
 [ext_resource type="Script" path="res://shops/weapon_shop.gd" id="1_kg48v"]
 [ext_resource type="PackedScene" uid="uid://l5dil5v2fj18" path="res://shops/interaction/shopping.tscn" id="2_fptcg"]
 [ext_resource type="Texture2D" uid="uid://c6mi0wvugvb7d" path="res://art/rand/Zombie-Tileset---_0124_Capa-125.png" id="2_l53t0"]
 [ext_resource type="Texture2D" uid="uid://bb7j4qcynrvjr" path="res://art/rand/Zombie-Tileset---_0125_Capa-126.png" id="3_8avbp"]
+[ext_resource type="AudioStream" uid="uid://c8njyj21r8rwi" path="res://sound_effects/merchant/cashier_buy.mp3" id="5_q6iyw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lwsdy"]
 radius = 26.4764
@@ -34,3 +35,6 @@ polygon = PackedVector2Array(-3, -4.33333, 0, -6.33333, 3, -4.66667, 2, 2, -2, 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shopping"]
 position = Vector2(1, -19)
 shape = SubResource("CircleShape2D_lwsdy")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_q6iyw")

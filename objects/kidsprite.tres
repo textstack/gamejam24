@@ -84,7 +84,7 @@ animations = [{
 "texture": ExtResource("4_s4pij")
 }],
 "loop": true,
-"name": &"hurt_defualt",
+"name": &"hurt_default",
 "speed": 5.0
 }, {
 "frames": [{

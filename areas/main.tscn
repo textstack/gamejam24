@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://df0hqk4bito00"]
+[gd_scene load_steps=18 format=4 uid="uid://df0hqk4bito00"]
 
 [ext_resource type="Script" path="res://areas/main.gd" id="1_dsbfv"]
 [ext_resource type="TileSet" uid="uid://c4lyv77js54p3" path="res://areas/main.tres" id="1_k7527"]
@@ -75,7 +75,6 @@ tile_set = ExtResource("1_k7527")
 
 [node name="25" parent="PlaySpace/Background/gate1" instance=ExtResource("3_au7rw")]
 position = Vector2(-248, 8.8)
-scale = Vector2(1, 1)
 
 [node name="gate2" type="TileMapLayer" parent="PlaySpace/Background"]
 z_index = 1
@@ -84,7 +83,6 @@ tile_set = ExtResource("1_k7527")
 
 [node name="250" parent="PlaySpace/Background/gate2" instance=ExtResource("3_au7rw")]
 position = Vector2(249.2, 6)
-scale = Vector2(1, 1)
 
 [node name="gate3" type="TileMapLayer" parent="PlaySpace/Background"]
 z_index = 1
@@ -93,7 +91,6 @@ tile_set = ExtResource("1_k7527")
 
 [node name="2500" parent="PlaySpace/Background/gate3" instance=ExtResource("3_au7rw")]
 position = Vector2(263.6, -344)
-scale = Vector2(1, 1)
 
 [node name="Player" parent="PlaySpace" instance=ExtResource("2_8ihch")]
 position = Vector2(38, -517)

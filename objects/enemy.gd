@@ -20,6 +20,19 @@ var wanderVel
 var wanderCurl
 
 
+#Zombie Noises
+@onready var moan_1 = $Zombie_moan_1
+@onready var moan_2 = $Zombie_moan_2
+@onready var moan_3 = $Zombie_moan_3
+
+@onready var moan_manager = [moan_1, moan_2, moan_3]
+
+
+@onready var zombie_bite = $Zombie_bite
+
+signal step
+
+
 func animate(speed):
 	if speed < 0.1:
 		$Sprite.play("default")
@@ -53,11 +66,14 @@ func animate(speed):
 
 func _process(_delta: float) -> void:
 	animate(1)
+	
 
 
 func die():
 	if point:
 		point.visible = true
+	play_sound()
+	
 	queue_free()
 
 func handle_hit(damage: int):
@@ -72,6 +88,7 @@ func onCollide(collision):
 	var body = collision.get_collider()
 	if body is Player and Time.get_unix_time_from_system() - lastHitPlayer > 0.5:
 		lastHitPlayer = Time.get_unix_time_from_system()
+		zombie_bite.play()
 		body.takeDamage(10 ** zone)
 
 
@@ -99,6 +116,8 @@ func goTowardsLastSeen():
 			return false
 	
 	if not lastSeenPlayer:
+		#random zombie moans
+		play_sound()
 		return true
 	
 	var move = lastSeenPlayer - position
@@ -117,6 +136,7 @@ func goTowardsTarget():
 		return
 	
 	if goTowardsLastSeen():
+		
 		return
 		
 	if not target:
@@ -152,6 +172,11 @@ func _physics_process(_delta: float) -> void:
 	goAwayFromOthers()
 	goTowardsTarget()
 	move_and_slide()
+
+
+func play_sound():
+	var rand_index : int  = randi_range(0, moan_manager.size() - 1)
+	moan_manager[rand_index].play()
 
 
 func _on_sight_body_entered(body: Node2D) -> void:

@@ -108,6 +108,7 @@ func _physics_process(_delta: float) -> void:
 		print("Pistol attack")
 		shoot_cooldown = false
 		var bullet_p = pistol_bullet.instantiate()
+		bullet_p.rotation = $Marker2D.rotation
 		var p_pos = pistol_equip.global_position
 		var vel = mouse_pos - p_pos
 		pistolB.emit(bullet_p, vel, p_pos)
@@ -119,12 +120,16 @@ func _physics_process(_delta: float) -> void:
 		print("ShotGun attack")
 		shoot_cooldown = false
 		var bullet_s = shotGun_bullet.instantiate()
+		bullet_s.rotation = $Marker2D.rotation
 		var p_pos = shotgun_equip.global_position
 		var vel = mouse_pos - p_pos
 		pistolB.emit(bullet_s, vel, p_pos)
 
 		await get_tree().create_timer(1).timeout
 		shoot_cooldown = true
+	
+	if Input.is_action_just_pressed("temp"):
+		Currencies.weapon_tier += 1
 
 
 func _on_hp_timer_timeout() -> void:

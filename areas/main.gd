@@ -77,7 +77,7 @@ func _process(_delta: float) -> void:
 	hud._set_curr_weapon(Currencies.weapon_tier)
 	$PlaySpace.position = -$PlaySpace/Player.position
 	
-	spawnObject(enemy, 0.2)
+	spawnObject(enemy, 0.15)
 	spawnObject(coin, 0.3)
 
 

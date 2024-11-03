@@ -87,7 +87,6 @@ func die():
 	#Currencies.money.add(5 ** zone)
 	if point:
 		point.visible = true
-	play_sound()
 	
 	queue_free()
 
@@ -195,8 +194,11 @@ func _physics_process(_delta: float) -> void:
 
 func play_sound():
 	var rand_index : int  = randi_range(0, moan_manager.size() - 1)
-	moan_manager[rand_index].play()
-
+		# coin flip for sound to play
+	if randi()%2 == 0:
+		moan_manager[rand_index].play()
+		await get_tree().create_timer(4).timeout
+ 
 
 func _on_sight_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Trackable"):

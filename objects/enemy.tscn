@@ -1,8 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://duqtigcbefxlc"]
+[gd_scene load_steps=11 format=3 uid="uid://duqtigcbefxlc"]
 
 [ext_resource type="Script" path="res://objects/enemy.gd" id="1_qmhxg"]
 [ext_resource type="SpriteFrames" uid="uid://bsiot8mr36ex3" path="res://objects/thinsprite.tres" id="2_5gire"]
-[ext_resource type="Texture2D" uid="uid://c6wkf22h7o34i" path="res://art/zombies/skinny_zombie/skinny_zombie_walking.png" id="2_ov72f"]
 [ext_resource type="AudioStream" uid="uid://2ornk236vr7q" path="res://sound_effects/zombie/zombie_moan1.mp3" id="3_ew76q"]
 [ext_resource type="AudioStream" uid="uid://dvdpotjpt67ee" path="res://sound_effects/zombie/zombie_attack2.mp3" id="4_qhj4l"]
 [ext_resource type="AudioStream" uid="uid://dj2x2himhd4cc" path="res://sound_effects/zombie/zombie_moan2.mp3" id="6_86wvu"]
@@ -80,17 +79,17 @@ volume_db = 10.816
 [node name="Zombie_moan_1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ew76q")
 volume_db = 24.0
-max_distance = 1000.0
+max_distance = 500.0
 
 [node name="Zombie_moan_2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_86wvu")
 volume_db = 18.304
-max_distance = 1000.0
+max_distance = 500.0
 
 [node name="Zombie_moan_3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_0qvp2")
 volume_db = 21.632
-max_distance = 1000.0
+max_distance = 500.0
 
 [connection signal="body_entered" from="Sight" to="." method="_on_sight_body_entered"]
 [connection signal="body_exited" from="Sight" to="." method="_on_sight_body_exited"]

@@ -1,50 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqqdl0sk5peos"]
+[gd_scene load_steps=4 format=3 uid="uid://cqqdl0sk5peos"]
 
 [ext_resource type="Script" path="res://objects/coin.gd" id="1_tbttx"]
-[ext_resource type="Texture2D" uid="uid://prv1pteajnar" path="res://art/rand/coin.png" id="2_6bax1"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u6eel"]
-atlas = ExtResource("2_6bax1")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ud342"]
-atlas = ExtResource("2_6bax1")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fko1n"]
-atlas = ExtResource("2_6bax1")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1tlnd"]
-atlas = ExtResource("2_6bax1")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tajqp"]
-atlas = ExtResource("2_6bax1")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_n65es"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u6eel")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ud342")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fko1n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1tlnd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tajqp")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
+[ext_resource type="Texture2D" uid="uid://b08vwo2ybmrxf" path="res://art/rand/coin.png" id="2_071bb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_meyah"]
 
@@ -52,13 +9,6 @@ animations = [{
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_tbttx")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-process_mode = 3
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_n65es")
-autoplay = "default"
-frame_progress = 0.604738
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_meyah")
@@ -72,5 +22,9 @@ polygon = PackedVector2Array(0, -10, 7, -7, 10, 0, 7, 7, 0, 10, -7, 7, -10, 0, -
 visible = false
 offset_right = 357.0
 offset_bottom = 159.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_071bb")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,16 +1,18 @@
 extends CharacterBody2D
 
 
-var target
-var othersNear = {}
-
-
 const SPEED = 300
 const SLOW_SPEED = 50
 const SMOOTH = 0.05
 
-var health = 3
+var health = 2
 
+var thinSprite = preload("res://objects/thinsprite.tres")
+var kidSprite = preload("res://objects/kidsprite.tres")
+var bigSprite = preload("res://objects/bigsprite.tres")
+
+var target
+var othersNear = {}
 var lastHitPlayer = 0
 var lastSeenPlayer
 var point
@@ -18,6 +20,20 @@ var zone = 0
 var doWander = false
 var wanderVel
 var wanderCurl
+
+
+func setup(zone_, point_):
+	zone = zone_
+	point = point_
+	
+	health = 2 * zone
+	
+	if zone == 0:
+		$Sprite.sprite_frames = kidSprite
+	elif zone == 1:
+		$Sprite.sprite_frames = thinSprite
+	elif zone == 2:
+		$Sprite.sprite_frames = bigSprite
 
 
 func animate(speed):
@@ -56,15 +72,18 @@ func _process(_delta: float) -> void:
 
 
 func die():
+	#Currencies.money.add(5 ** zone)
 	if point:
 		point.visible = true
 	queue_free()
+
 
 func handle_hit(damage: int):
 	health -= damage
 	print("Enemy was hit " + str(health))
 	if health <= 0:
 		die()
+
 
 func onCollide(collision):
 	velocity = velocity.bounce(collision.get_normal())

@@ -7,6 +7,11 @@ var zone = 0
 var point
 
 
+func setup(zone_, point_):
+	zone = zone_
+	point = point_
+
+
 func _on_body_entered(body: Node) -> void:
 	if body is Player:
 		Currencies.money.add(5 ** zone)

@@ -36,6 +36,7 @@ size = Vector2(20, 2922.75)
 size = Vector2(20, 2931.75)
 
 [node name="Main" type="Node2D"]
+texture_filter = 1
 position = Vector2(578, 325)
 script = ExtResource("1_dsbfv")
 
@@ -91,13 +92,9 @@ tile_set = ExtResource("1_k7527")
 [node name="2500" parent="PlaySpace/Background/gate3" instance=ExtResource("3_au7rw")]
 position = Vector2(263.6, -344)
 
-[node name="Player" parent="PlaySpace" instance=ExtResource("2_8ihch")]
-position = Vector2(38, -517)
-scale = Vector2(0.7, 0.7)
-
 [node name="SafeZone" parent="PlaySpace" instance=ExtResource("4_qaafj")]
-position = Vector2(1, -599)
-scale = Vector2(39, 18)
+position = Vector2(0, -592)
+scale = Vector2(39, 17)
 
 [node name="SafeZone2" parent="PlaySpace" instance=ExtResource("4_qaafj")]
 position = Vector2(667, -2363)
@@ -483,6 +480,10 @@ shape = SubResource("RectangleShape2D_x238r")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlaySpace/RoadCollider2"]
 position = Vector2(729, -2315.12)
 shape = SubResource("RectangleShape2D_dc755")
+
+[node name="Player" parent="PlaySpace" instance=ExtResource("2_8ihch")]
+position = Vector2(38, -517)
+scale = Vector2(0.7, 0.7)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

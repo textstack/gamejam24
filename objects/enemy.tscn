@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://duqtigcbefxlc"]
+[gd_scene load_steps=6 format=3 uid="uid://duqtigcbefxlc"]
 
 [ext_resource type="Script" path="res://objects/enemy.gd" id="1_qmhxg"]
-[ext_resource type="Texture2D" uid="uid://c6wkf22h7o34i" path="res://art/zombies/skinny_zombie/skinny_zombie_walking.png" id="2_ov72f"]
+[ext_resource type="SpriteFrames" uid="uid://bsiot8mr36ex3" path="res://objects/thinsprite.tres" id="2_5gire"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wp0gl"]
 radius = 15.0
@@ -11,120 +11,6 @@ radius = 400.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hs8et"]
 radius = 60.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lg8hw"]
-atlas = ExtResource("2_ov72f")
-region = Rect2(0, 0, 12, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ulm4x"]
-atlas = ExtResource("2_ov72f")
-region = Rect2(72, 0, 12, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tj560"]
-atlas = ExtResource("2_ov72f")
-region = Rect2(84, 0, 12, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xehi4"]
-atlas = ExtResource("2_ov72f")
-region = Rect2(72, 0, 12, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qdume"]
-atlas = ExtResource("2_ov72f")
-region = Rect2(96, 0, 12, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4a258"]
-atlas = ExtResource("2_ov72f")
-region = Rect2(0, 0, 12, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q4cvn"]
-atlas = ExtResource("2_ov72f")
-region = Rect2(12, 0, 12, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vcatp"]
-atlas = ExtResource("2_ov72f")
-region = Rect2(0, 0, 12, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tw4cp"]
-atlas = ExtResource("2_ov72f")
-region = Rect2(24, 0, 12, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ne5s1"]
-atlas = ExtResource("2_ov72f")
-region = Rect2(36, 0, 12, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dobfg"]
-atlas = ExtResource("2_ov72f")
-region = Rect2(48, 0, 12, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jmwar"]
-atlas = ExtResource("2_ov72f")
-region = Rect2(36, 0, 12, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_46an5"]
-atlas = ExtResource("2_ov72f")
-region = Rect2(60, 0, 12, 21)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_4nrak"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lg8hw")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ulm4x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tj560")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xehi4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qdume")
-}],
-"loop": true,
-"name": &"walk_north",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4a258")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q4cvn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vcatp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tw4cp")
-}],
-"loop": true,
-"name": &"walk_south",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ne5s1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dobfg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jmwar")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_46an5")
-}],
-"loop": true,
-"name": &"walk_west",
-"speed": 8.0
-}]
 
 [node name="Enemy" type="CharacterBody2D" groups=["TrackingEnemy"]]
 collision_layer = 3
@@ -168,8 +54,7 @@ autostart = true
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_4nrak")
-animation = &"walk_south"
+sprite_frames = ExtResource("2_5gire")
 
 [connection signal="body_entered" from="Sight" to="." method="_on_sight_body_entered"]
 [connection signal="body_exited" from="Sight" to="." method="_on_sight_body_exited"]

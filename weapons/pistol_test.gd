@@ -1,23 +1,23 @@
-extends Area2D
+extends RigidBody2D
 
+
+var velocity = Vector2(0,0)
 var speed = 300
 var damage = 3
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	set_as_top_level(true)
-	
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	position += (Vector2.RIGHT).rotated(rotation) * delta * speed
 	
+	var collision_info = move_and_collide(velocity.normalized() * delta * speed)
+
 
 func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
 	queue_free()
 
+
 func _on_body_entered(body: Node2D) -> void:
+	print("BlahBl;ah")
 	if body.has_method("handle_hit"):
 		body.handle_hit(damage)
 	self.queue_free()
+	

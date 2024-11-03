@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://duqtigcbefxlc"]
+[gd_scene load_steps=21 format=3 uid="uid://duqtigcbefxlc"]
 
 [ext_resource type="Script" path="res://objects/enemy.gd" id="1_qmhxg"]
 [ext_resource type="Texture2D" uid="uid://c6wkf22h7o34i" path="res://art/zombies/skinny_zombie/skinny_zombie_walking.png" id="2_ov72f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wp0gl"]
-radius = 15.0
+radius = 19.0
+height = 56.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_820nc"]
 radius = 400.0
@@ -126,6 +127,10 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dvtl4"]
+radius = 22.0
+height = 70.0
+
 [node name="Enemy" type="CharacterBody2D" groups=["TrackingEnemy"]]
 collision_layer = 3
 collision_mask = 3
@@ -171,8 +176,16 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_4nrak")
 animation = &"walk_south"
 
+[node name="BulletHitBox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletHitBox"]
+shape = SubResource("CapsuleShape2D_dvtl4")
+
 [connection signal="body_entered" from="Sight" to="." method="_on_sight_body_entered"]
 [connection signal="body_exited" from="Sight" to="." method="_on_sight_body_exited"]
 [connection signal="body_entered" from="MoveAway" to="." method="_on_move_away_body_entered"]
 [connection signal="body_exited" from="MoveAway" to="." method="_on_move_away_body_exited"]
 [connection signal="timeout" from="WanderTimer" to="." method="_on_wander_timer_timeout"]
+[connection signal="body_entered" from="BulletHitBox" to="." method="_on_bullet_hit_box_body_entered"]

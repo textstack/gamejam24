@@ -73,3 +73,12 @@ func _process(_delta: float) -> void:
 	spawnObject(enemy, 0.2)
 	spawnObject(coin, 0.3)
 	
+
+
+
+
+
+func _on_player_pistol_b(bullet: Variant, velo: Variant, posit: Variant) -> void:
+	$PlaySpace.add_child(bullet)
+	bullet.global_position = posit
+	bullet.velocity = velo

@@ -3,6 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bdss8qwd1qc0k" path="res://weapons/real_pistol.webp" id="1_fv4hp"]
 
 [node name="Pistol" type="Sprite2D"]
-position = Vector2(20, 0)
-scale = Vector2(5.25, 5.1)
+position = Vector2(26, 0)
+scale = Vector2(4.25, 4.129)
 texture = ExtResource("1_fv4hp")

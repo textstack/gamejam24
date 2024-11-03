@@ -70,7 +70,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [-1.5708, 0.523599, -1.5708]
+"values": [-1.5708, 0.261799, -1.5708]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -92,7 +92,7 @@ _data = {
 }
 
 [node name="Knife" type="Area2D"]
-position = Vector2(25, -6)
+position = Vector2(16, -3)
 script = ExtResource("1_nn84b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -102,7 +102,7 @@ scale = Vector2(1.66092, 1.60492)
 texture = ExtResource("2_tly6d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(11.375, 0)
+position = Vector2(13, 1)
 shape = SubResource("RectangleShape2D_bkw77")
 disabled = true
 

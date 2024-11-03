@@ -14,5 +14,5 @@ func _ready() -> void:
 	
 func resetCurrencies() -> void:
 	health.total = 6
-	money.total = 0
+	money.total = 50000
 	weapon_tier = 0

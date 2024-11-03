@@ -26,7 +26,7 @@ func _on_interact():
 			Currencies.weapon_tier += 1
 		print(Currencies.weapon_tier)
 		
-		if Currencies.weapon_tier > 4:
+		if Currencies.weapon_tier >= 4:
 			$Shopping.queue_free()
 	else:
 		print("Too poor for Weapon")

@@ -11,3 +11,8 @@ func _ready() -> void:
 	money = Currency.new(0, "Money", "")
 	weapon_tier = 0
 	health = Health.new(6, 6, "Health", "")
+	
+func resetCurrencies() -> void:
+	health.total = 6
+	money.total = 0
+	weapon_tier = 0

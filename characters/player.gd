@@ -44,12 +44,12 @@ func takeDamage(amount):
 
 
 func die():
-	get_tree().quit()
+	pass
+	#get_tree().quit()
 
 
 func _process(_delta: float) -> void:
 	if cur_weapon != Currencies.weapon_tier:
-		cur_weapon = Currencies.weapon_tier
 		if Currencies.weapon_tier == 1:
 			print("now have knife")
 			purchase_sound.play()
@@ -75,6 +75,7 @@ func _process(_delta: float) -> void:
 			add_child(shotgun_equip)
 		if Currencies.weapon_tier > 4:
 			pass
+		cur_weapon = Currencies.weapon_tier
 			
 	if Currencies.zone < 0:
 		$HPTimer.wait_time = 2
@@ -91,6 +92,12 @@ func _physics_process(_delta: float) -> void:
 	var speed = SPEED + Upgrades.getSpeed() - Currencies.zone * 50
 	velocity = velocity.lerp(move.normalized() * speed, SMOOTH)
 	
+	if Input.get_action_strength("Right") > Input.get_action_strength("Left"):
+		pass
+		
+	elif Input.get_action_strength("Left") > Input.get_action_strength("Right"):
+		pass
+	
 	#Animation player for movement
 	if Input.is_action_pressed("Down"):
 		movement_ani.play("walk_down")
@@ -105,6 +112,33 @@ func _physics_process(_delta: float) -> void:
 		movement_ani.play("walk")
 	else:
 		movement_ani.play("idle_face")
+	
+	if Input.is_action_just_pressed("Right"):
+		if cur_weapon == 1:
+			knife_equip.position.x = abs(knife_equip.position.x)
+			knife_equip.scale.x = 1
+		elif cur_weapon == 2:
+			pipe_equip.scale.x = 1
+			pipe_equip.position.x = abs(pipe_equip.position.x)
+		elif cur_weapon == 3:
+			pistol_equip.flip_h = false
+			pistol_equip.position.x = abs(pistol_equip.position.x)
+		elif cur_weapon == 4:
+			shotgun_equip.flip_h = false
+			shotgun_equip.position.x = abs(shotgun_equip.position.x)
+	if Input.is_action_just_pressed("Left"):
+		if cur_weapon == 1:
+			knife_equip.scale.x = -1
+			knife_equip.position.x = -abs(knife_equip.position.x)
+		elif cur_weapon == 2:
+			pipe_equip.scale.x = -1
+			pipe_equip.position.x = -abs(pipe_equip.position.x)
+		elif cur_weapon == 3:
+			pistol_equip.flip_h = true
+			pistol_equip.position.x = -abs(pistol_equip.position.x)
+		elif cur_weapon == 4:
+			shotgun_equip.flip_h = true
+			shotgun_equip.position.x = -abs(shotgun_equip.position.x)
 	
 	move_and_slide()
 	
@@ -151,9 +185,30 @@ func _physics_process(_delta: float) -> void:
 	
 
 
+var heal = 0
+
+func healEffect():
+	if heal == 0:
+		$Heal.emitting = true
+	else:
+		$Heal2.emitting = true
+	
+	heal = (heal + 1) % 2
+
+
+var harm = 0
+
 func _on_hp_timer_timeout() -> void:
 	if Currencies.zone < 0:
 		return
 	
+	if harm == 0:
+		$Harm.emitting = true
+	elif harm == 1:
+		$Harm2.emitting = true
+	elif harm == 2:
+		$Harm3.emitting = true
+	
+	harm = (harm + 1) % 3
 	takeDamage(1)
 	

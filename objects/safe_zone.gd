@@ -18,4 +18,8 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _on_heal_timer_timeout() -> void:
 	if player:
+		var hp = Currencies.health.total
 		Currencies.health.add(Upgrades.getHeal())
+		
+		if hp != Currencies.health.total:
+			player.healEffect()

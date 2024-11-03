@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c6wkf22h7o34i" path="res://art/zombies/skinny_zombie/skinny_zombie_walking.png" id="2_ov72f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wp0gl"]
-radius = 19.0
-height = 56.0
+radius = 15.0
+height = 46.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_820nc"]
 radius = 400.0

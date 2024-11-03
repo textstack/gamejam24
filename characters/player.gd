@@ -35,7 +35,8 @@ func takeDamage(amount):
 
 
 func die():
-	get_tree().quit()
+	pass
+	#get_tree().quit()
 
 
 func _process(_delta: float) -> void:
@@ -164,9 +165,30 @@ func _physics_process(_delta: float) -> void:
 		Currencies.weapon_tier += 1
 
 
+var heal = 0
+
+func healEffect():
+	if heal == 0:
+		$Heal.emitting = true
+	else:
+		$Heal2.emitting = true
+	
+	heal = (heal + 1) % 2
+
+
+var harm = 0
+
 func _on_hp_timer_timeout() -> void:
 	if Currencies.zone < 0:
 		return
 	
+	if harm == 0:
+		$Harm.emitting = true
+	elif harm == 1:
+		$Harm2.emitting = true
+	elif harm == 2:
+		$Harm3.emitting = true
+	
+	harm = (harm + 1) % 3
 	takeDamage(1)
 	

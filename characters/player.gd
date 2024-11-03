@@ -13,6 +13,7 @@ const SMOOTH = 0.6
 @export var shotGun_bullet = preload("res://weapons/shot_bul.tscn")
 
 signal pistolB(bullet, velo, posit)
+signal died
 
 var cur_weapon = 0
 var shoot_cooldown = true
@@ -40,12 +41,12 @@ func takeDamage(amount):
 	
 	Currencies.health.total -= amount
 	if Currencies.health.total <= 0:
+		#Currencies.health.total = 0
 		die()
-
+		#$ZeroTimer.start()
 
 func die():
-	get_tree().quit()
-
+	died.emit()
 
 func _process(_delta: float) -> void:
 	if cur_weapon != Currencies.weapon_tier:

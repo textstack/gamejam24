@@ -1,0 +1,219 @@
+[gd_scene load_steps=21 format=3 uid="uid://dg15in160b3xh"]
+
+[ext_resource type="Script" path="res://end_screen/end_screen.gd" id="1_14rmi"]
+[ext_resource type="Texture2D" uid="uid://b8swe5po7crk5" path="res://end_screen/body.png" id="1_blnuu"]
+[ext_resource type="Texture2D" uid="uid://d0h4dtftvn65t" path="res://end_screen/bird.png" id="3_q6qya"]
+[ext_resource type="Script" path="res://end_screen/animated_sprite_2d.gd" id="4_l545x"]
+[ext_resource type="FontFile" uid="uid://brb4k4k8jahgd" path="res://fonts/pixel-meltdown.ttf" id="4_vsev6"]
+[ext_resource type="Theme" uid="uid://cutxnsdm05ea6" path="res://themes/button_theme.tres" id="5_cvrwf"]
+[ext_resource type="FontFile" uid="uid://cknm4tdaunqe8" path="res://fonts/Retro Gaming.ttf" id="6_vclnk"]
+[ext_resource type="Texture2D" uid="uid://owbgt5lv2oe7" path="res://end_screen/Zombie-Tileset---_0124_Capa-125.png" id="7_baxwl"]
+[ext_resource type="Texture2D" uid="uid://ccl6ti85b1lcs" path="res://end_screen/Zombie-Tileset---_0125_Capa-126.png" id="8_6o54p"]
+
+[sub_resource type="Theme" id="Theme_bvh8y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hw53m"]
+bg_color = Color(0.242736, 0.212321, 0.200959, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n35st"]
+atlas = ExtResource("1_blnuu")
+region = Rect2(0, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yc5w8"]
+atlas = ExtResource("1_blnuu")
+region = Rect2(17, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6nap"]
+atlas = ExtResource("1_blnuu")
+region = Rect2(34, 0, 17, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mdb4v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n35st")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yc5w8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6nap")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt5p0"]
+atlas = ExtResource("3_q6qya")
+region = Rect2(0, 0, 7, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30o54"]
+atlas = ExtResource("3_q6qya")
+region = Rect2(7, 0, 7, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bkhu"]
+atlas = ExtResource("3_q6qya")
+region = Rect2(14, 0, 7, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4xpqy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tt5p0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30o54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bkhu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Theme" id="Theme_l8658"]
+default_font = ExtResource("4_vsev6")
+default_font_size = 80
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bvh8y")
+script = ExtResource("1_14rmi")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -278.0
+offset_top = -158.0
+offset_right = 280.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hw53m")
+
+[node name="Zombie-tileset---0124Capa-125" type="Sprite2D" parent="Panel"]
+texture_filter = 1
+position = Vector2(87.7125, 195.08)
+rotation = -0.10472
+scale = Vector2(5.91667, 5.91667)
+texture = ExtResource("7_baxwl")
+
+[node name="Zombie-tileset---0125Capa-126" type="Sprite2D" parent="Panel"]
+texture_filter = 1
+position = Vector2(95.7125, 278.08)
+rotation = -0.10472
+scale = Vector2(8.02778, 8.02778)
+texture = ExtResource("8_6o54p")
+
+[node name="dead_body1" type="AnimatedSprite2D" parent="Panel"]
+texture_filter = 1
+position = Vector2(489.25, 248.572)
+scale = Vector2(5.00961, 5.00961)
+sprite_frames = SubResource("SpriteFrames_mdb4v")
+autoplay = "default"
+frame_progress = 0.0907431
+
+[node name="bird" type="AnimatedSprite2D" parent="Panel"]
+texture_filter = 1
+position = Vector2(443.25, 248.572)
+scale = Vector2(5.5, 5.5)
+sprite_frames = SubResource("SpriteFrames_4xpqy")
+autoplay = "default"
+frame_progress = 0.121324
+script = ExtResource("4_l545x")
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = 68.0
+offset_right = -65.0
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14902, 0.0823529, 0.0235294, 0.509804)
+
+[node name="game_over" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = 0.5
+anchor_right = 0.504
+anchor_bottom = 0.5
+offset_left = -215.608
+offset_top = -135.0
+offset_right = 215.392
+offset_bottom = 3.0
+theme = SubResource("Theme_l8658")
+bbcode_enabled = true
+text = "[outline_size=25][outline_color=000000][color=d2ccac][center]YOU DIED[/center][/color][/outline_color][/outline_size]"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.515
+anchor_right = 0.5
+anchor_bottom = 0.515
+offset_left = -141.0
+offset_top = -103.72
+offset_right = 145.0
+offset_bottom = 104.28
+theme_override_constants/separation = 0
+
+[node name="Seperator" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 85)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Restart" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+theme = ExtResource("5_cvrwf")
+theme_override_colors/font_color = Color(0.266667, 0.219608, 0.188235, 1)
+theme_override_fonts/font = ExtResource("6_vclnk")
+theme_override_font_sizes/font_size = 20
+text = "RESTART"
+
+[node name="Seperator2" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_cvrwf")
+theme_override_colors/font_color = Color(0.266667, 0.219608, 0.188235, 1)
+theme_override_fonts/font = ExtResource("6_vclnk")
+theme_override_font_sizes/font_size = 20
+text = "QUIT TO MAIN"
+
+[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

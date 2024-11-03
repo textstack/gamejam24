@@ -2,7 +2,18 @@ extends Node2D
 
 var coin = preload("res://objects/coin.tscn")
 var enemy = preload("res://objects/enemy.tscn")
+var title_screen = preload("res://title_screen/title_scene.gd")
 @onready var hud = $CanvasLayer/hud
+@onready var player = $PlaySpace/Player
+@onready var end_screen = $CanvasLayer/EndScreen
+
+func _ready() -> void:
+	end_screen.hide()
+	player.died.connect(on_death)
+	
+func on_death():
+	get_tree().paused = true
+	end_screen.show()
 
 func isOnScreen(pos):
 	var posAdjust = pos + $PlaySpace.position + get_viewport_rect().size / 2
@@ -84,6 +95,7 @@ func _process(_delta: float) -> void:
 	
 	spawnObject(enemy, 0.15)
 	spawnObject(coin, 0.3)
+	
 
 
 func _on_player_pistol_b(bullet: Variant, velo: Variant, posit: Variant) -> void:

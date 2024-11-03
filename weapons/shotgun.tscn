@@ -3,6 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bf5mnlv3cyyja" path="res://weapons/shotgun.webp" id="1_x1rai"]
 
 [node name="Shotgun" type="Sprite2D"]
-position = Vector2(18, 0)
+position = Vector2(35, 0)
 scale = Vector2(4, 4.24)
 texture = ExtResource("1_x1rai")

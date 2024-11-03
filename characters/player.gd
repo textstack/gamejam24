@@ -44,8 +44,7 @@ func takeDamage(amount):
 
 
 func die():
-	pass
-	#get_tree().quit()
+	get_tree().quit()
 
 
 func _process(_delta: float) -> void:
@@ -73,8 +72,6 @@ func _process(_delta: float) -> void:
 			
 			shotgun_equip = shotgun.instantiate()
 			add_child(shotgun_equip)
-		if Currencies.weapon_tier > 4:
-			pass
 		cur_weapon = Currencies.weapon_tier
 			
 	if Currencies.zone < 0:
@@ -182,7 +179,11 @@ func _physics_process(_delta: float) -> void:
 		shoot_cooldown = true
 	
 	if Input.is_action_just_pressed("temp"):
-		Currencies.weapon_tier += 1
+		#if Currencies.weapon_tier < 4:
+			#Currencies.weapon_tier += 1
+		#This is for weapons testing, if you want to test just uncomment and right
+		#Click to activate
+		pass
 		
 	
 

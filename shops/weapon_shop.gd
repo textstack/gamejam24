@@ -22,7 +22,8 @@ func _on_interact():
 		$Shopping.shop_cost = cost
 		print("Weapon Gained")
 		purchase_sound.play()
-		Currencies.weapon_tier += 1
+		if Currencies.weapon_tier < 4:
+			Currencies.weapon_tier += 1
 		print(Currencies.weapon_tier)
 		
 		if Currencies.weapon_tier > 4:

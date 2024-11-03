@@ -10,13 +10,6 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_tbttx")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-process_mode = 3
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_n65es")
-autoplay = "default"
-frame_progress = 0.604738
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_meyah")
 

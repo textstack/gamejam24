@@ -72,7 +72,7 @@ func _process(_delta: float) -> void:
 
 
 func die():
-	Currencies.money.add(5 ** zone)
+	#Currencies.money.add(5 ** zone)
 	if point:
 		point.visible = true
 	queue_free()

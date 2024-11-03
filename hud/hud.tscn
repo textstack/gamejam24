@@ -50,9 +50,9 @@ text = "$ 0"
 
 [node name="zone" type="RichTextLabel" parent="hud_inventory"]
 layout_mode = 0
-offset_left = 945.0
+offset_left = 920.0
 offset_top = 602.0
-offset_right = 1117.0
+offset_right = 1146.0
 offset_bottom = 642.0
 theme = ExtResource("3_ho7gu")
 bbcode_enabled = true
@@ -60,7 +60,7 @@ text = "ZONE: SAFE"
 
 [node name="current_weapon" type="TextureRect" parent="hud_inventory"]
 layout_mode = 0
-offset_left = 842.0
-offset_top = 593.0
-offset_right = 918.0
-offset_bottom = 637.0
+offset_left = 834.0
+offset_top = 595.0
+offset_right = 910.0
+offset_bottom = 639.0

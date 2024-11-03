@@ -20,6 +20,7 @@ var zone = 0
 var doWander = false
 var wanderVel
 var wanderCurl
+var hurt = false
 
 
 #Zombie Noises
@@ -85,16 +86,42 @@ func animate(speed):
 		$Sprite.play("walk_north", speed)
 		return
 
+func hurt_animate(speed):
+	print("blah")
+	if speed < 0.1:
+		$Sprite.play("hurt_default")
+		return
+		
+	if velocity.x > 0:
+		$Sprite.flip_h = true
+		$Sprite.play("hurt_west", speed)
+		return
+	
+	$Sprite.flip_h = false
+	
+	if velocity.x < 0:
+		$Sprite.play("hurt_west", speed)
+		return
+	
+	if velocity.y > 0:
+		$Sprite.play("hurt_default", speed)
+		return
+	
+	if velocity.y < 0:
+		$Sprite.play("hurt_north", speed)
+		return
 
 func _process(_delta: float) -> void:
-	animate(1)
+	if hurt == true:
+		hurt_animate(2)
+	else: 
+		animate(1)
 	
 
 
 func die():
 	if Currencies.zone == zone:
 		Currencies.money.add(5 ** zone)
-	
 	if point:
 		point.show_behind_parent = false
 	
@@ -104,6 +131,10 @@ func die():
 func handle_hit(damage: int):
 	health -= damage
 	print("Enemy was hit " + str(health))
+	hurt = true
+	await get_tree().create_timer(.5).timeout
+	hurt = false
+	
 	if health <= 0:
 		die()
 
@@ -242,4 +273,4 @@ func _on_bullet_hit_box_body_entered(body: Node2D) -> void:
 	if body.has_method("_on_visible_on_screen_enabler_2d_screen_exited"):
 		handle_hit(body.damage)
 	body.queue_free()
-	self.queue_free()
+	

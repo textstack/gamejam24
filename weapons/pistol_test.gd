@@ -3,7 +3,7 @@ extends RigidBody2D
 
 var velocity = Vector2(0,0)
 var speed = 300
-var damage = 3
+var damage = 2
 
 
 func _physics_process(delta: float) -> void:

@@ -63,8 +63,13 @@ func getRandomPlace(inst, zone, frac):
 
 const letters = { "0": "C", "1": "B", "2": "A" }
 
+var won
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if won:
+		return
+	
 	#$CanvasLayer/RichTextLabel.text = "money: " + str(Currencies.money.total) + " health: " + str(Currencies.health.total) + " zone: " + str(Currencies.zone)
 	hud._set_money(Currencies.money.total)
 	hud._set_health(Currencies.health.total, Currencies.health.getMax())
@@ -77,7 +82,7 @@ func _process(_delta: float) -> void:
 	hud._set_curr_weapon(Currencies.weapon_tier)
 	$PlaySpace.position = -$PlaySpace/Player.position
 	
-	spawnObject(enemy, 0.2)
+	spawnObject(enemy, 0.15)
 	spawnObject(coin, 0.3)
 
 
@@ -85,3 +90,10 @@ func _on_player_pistol_b(bullet: Variant, velo: Variant, posit: Variant) -> void
 	$PlaySpace.add_child(bullet)
 	bullet.global_position = posit
 	bullet.velocity = velo
+
+
+func _on_win_check_body_entered(body: Node2D) -> void:
+	if body is Player:
+		won = true
+		$CanvasLayer/YouWin.visible = true
+		$PlaySpace.queue_free()

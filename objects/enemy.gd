@@ -116,12 +116,12 @@ func _process(_delta: float) -> void:
 		hurt_animate(2)
 	else: 
 		animate(1)
-	
 
 
 func die():
 	if Currencies.zone == zone:
-		Currencies.money.add(5 ** zone)
+		Currencies.money.add(2 * (5 ** zone))
+
 	if point:
 		point.show_behind_parent = false
 	
@@ -147,8 +147,6 @@ func onCollide(collision):
 		lastHitPlayer = Time.get_unix_time_from_system()
 		zombie_bite.play()
 		body.takeDamage(10 ** zone)
-		
-		
 
 
 func wander():

@@ -30,6 +30,5 @@ func add(amount):
 func trySpend(amount):
 	if total < amount:
 		return false
-	
 	total -= amount
 	return true

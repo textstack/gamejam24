@@ -1,6 +1,6 @@
 extends Node2D
 
-
+@onready var purchase_sound = $AudioStreamPlayer2D
 @onready var interaction_area: shopping = $Shopping
 @onready var sprite = $Polygon2D
 var upgradeName
@@ -29,7 +29,8 @@ func _on_interact():
 	var upgrade = Upgrades.getType(type)[upgradeName]
 	if not upgrade:
 		return
-	
-	upgrade.trySpend()
+	#check if purchase made
+	if upgrade.trySpend():
+		purchase_sound.play()
 	$Shopping.shop_cost = upgrade.getPrice()
 	

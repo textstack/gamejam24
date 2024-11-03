@@ -141,6 +141,8 @@ func _physics_process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("temp"):
 		Currencies.weapon_tier += 1
+		
+	
 
 
 func _on_hp_timer_timeout() -> void:

@@ -29,6 +29,7 @@ var shotgun_equip
 @onready var knife_sound = $knife_slash
 @onready var pipe_sound = $pipe_hit
 @onready var pistol_sound = $pistol_fire
+@onready var shotgun_sound = $shotgun_fire
 
 func takeDamage(amount):
 	if not amount:
@@ -120,10 +121,11 @@ func _physics_process(_delta: float) -> void:
 		bullet_p.global_position = $Marker2D.global_position
 		add_child(bullet_p)
 		
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(1).timeouts
 		shoot_cooldown = true
 	elif Input.is_action_just_pressed("attack") && (cur_weapon >= 4) && shoot_cooldown:
 		print("ShotGun attack")
+		shotgun_sound.play()
 		shoot_cooldown = false
 		var bullet_s = shotGun_bullet.instantiate()
 		bullet_s.rotation = $Marker2D.rotation

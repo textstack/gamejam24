@@ -9,6 +9,7 @@ var title_screen = preload("res://title_screen/title_scene.gd")
 
 func _ready() -> void:
 	end_screen.hide()
+	$CanvasLayer/Info.hide()
 	player.died.connect(on_death)
 	
 func on_death():
@@ -109,3 +110,9 @@ func _on_win_check_body_entered(body: Node2D) -> void:
 		won = true
 		$CanvasLayer/YouWin.visible = true
 		$PlaySpace.queue_free()
+
+func _on_info_mouse_entered() -> void:
+	$CanvasLayer/Info.show()
+	
+func _on_info_mouse_exited() -> void:
+	$CanvasLayer/Info.hide()

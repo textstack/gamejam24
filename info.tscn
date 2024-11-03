@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuf06jrbcow3w"]
+
+[ext_resource type="FontFile" uid="uid://cknm4tdaunqe8" path="res://fonts/Retro Gaming.ttf" id="1_iun7o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fh2jr"]
+bg_color = Color(0.17854, 0.144616, 0.110365, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_y2djw"]
+default_font = ExtResource("1_iun7o")
+default_font_size = 25
+
+[node name="Info" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -507.0
+offset_top = -286.0
+offset_right = 507.0
+offset_bottom = 286.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fh2jr")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 61.0
+offset_right = 970.0
+offset_bottom = 608.0
+theme = SubResource("Theme_y2djw")
+text = "You spawn IN the safe zone! You can heal, buy 
+weapons, and more health
+
+Leave to collect coins, purchase weapons, and more health. BUT staying outside of the safe zone kills you. Zombies will also have the chance to kill you!
+
+Use your bought and upgraded weapons to kill zombies!
+
+But remember! Come back to the safe zone when you are low on health or YOU DIE!
+
+
+"
+horizontal_alignment = 1
+autowrap_mode = 3

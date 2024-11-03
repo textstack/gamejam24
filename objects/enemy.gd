@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 
-const SPEED = 300
+const SPEED = 250
 const SLOW_SPEED = 75
 const SMOOTH = 0.05
 
-var health = 3
+var health = 2
 
 var thinSprite = preload("res://objects/thinsprite.tres")
 var kidSprite = preload("res://objects/kidsprite.tres")

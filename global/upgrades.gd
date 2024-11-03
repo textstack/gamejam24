@@ -15,8 +15,8 @@ func _ready() -> void:
 	newUpgrade("bandages", "heal", 75, 1.4, 5)
 	newUpgrade("first_aid", "heal", 350, 1.4, 25)
 	
-	newUpgrade("good_food", "speed", 30, 2, 10)
-	newUpgrade("energy_drink", "speed", 150, 2, 25)
+	newUpgrade("good_food", "speed", 30, 2, 25)
+	newUpgrade("energy_drink", "speed", 400, 2, 50)
 
 
 func getType(type):

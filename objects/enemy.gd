@@ -22,11 +22,30 @@ var wanderVel
 var wanderCurl
 
 
+#Zombie Noises
+@onready var moan_1 = $Zombie_moan_1
+@onready var moan_2 = $Zombie_moan_2
+@onready var moan_3 = $Zombie_moan_3
+
+@onready var moan_manager = [moan_1, moan_2, moan_3]
+
+
+@onready var zombie_bite = $Zombie_bite
+
+signal step
+
+
+func canSpawn(point_):
+	return not point_.show_behind_parent
+
+
 func setup(zone_, point_):
 	zone = zone_
 	point = point_
 	
-	health = 2 * zone
+	point_.show_behind_parent = true
+	
+	health = 3 * (zone_ + 1)
 	
 	if zone == 0:
 		$Sprite.sprite_frames = kidSprite
@@ -73,10 +92,10 @@ func _process(_delta: float) -> void:
 
 func die():
 	if Currencies.zone == zone:
-		Currencies.money.add(5 ** zone)
+		Currencies.money.add(2 * (5 ** zone))
 	
 	if point:
-		point.visible = true
+		point.show_behind_parent = false
 	
 	queue_free()
 
@@ -94,9 +113,8 @@ func onCollide(collision):
 	var body = collision.get_collider()
 	if body is Player and Time.get_unix_time_from_system() - lastHitPlayer > 0.5:
 		lastHitPlayer = Time.get_unix_time_from_system()
+		zombie_bite.play()
 		body.takeDamage(10 ** zone)
-		
-		
 
 
 func wander():
@@ -123,9 +141,15 @@ func goTowardsLastSeen():
 			return false
 	
 	if not lastSeenPlayer:
+		#random zombie moans
+		play_sound()
 		return true
 	
 	var move = lastSeenPlayer - position
+	if Currencies.zone != zone:
+		wander()
+		return true
+	
 	if move.length() < 40:
 		wander()
 		return true
@@ -135,16 +159,13 @@ func goTowardsLastSeen():
 
 
 func goTowardsTarget():
-	var diff = Vector2()
-	if target:
-		diff = target.position - position
-	
-	if Currencies.zone < 0 or (diff.length() > 100 and Currencies.zone != zone):
+	if Currencies.zone < 0:
 		lastSeenPlayer = null
 		wander()
 		return
 	
 	if goTowardsLastSeen():
+		
 		return
 		
 	if not target:
@@ -154,7 +175,7 @@ func goTowardsTarget():
 	if point:
 		point.visible = true
 	
-	
+	var diff = target.position - position
 	var dot = target.velocity.normalized().dot(-diff.normalized())
 	var move = diff + target.velocity * (1 - dot)
 	velocity = velocity.lerp(move.normalized() * SPEED, SMOOTH)
@@ -181,6 +202,14 @@ func _physics_process(_delta: float) -> void:
 	goTowardsTarget()
 	move_and_slide()
 
+
+func play_sound():
+	var rand_index : int  = randi_range(0, moan_manager.size() - 1)
+		# coin flip for sound to play
+	if randi()%2 == 0:
+		moan_manager[rand_index].play()
+		await get_tree().create_timer(4).timeout
+ 
 
 func _on_sight_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Trackable"):

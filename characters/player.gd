@@ -24,10 +24,16 @@ var pipe_equip
 var pistol_equip
 var shotgun_equip
 
+#Animations
 @onready var movement_ani = $AnimatedSprite2D
 
-#func _ready() -> void:
-	##$ZeroTimer.connect("timeout", Callable(self, "die"))
+#Attack sounds
+@onready var knife_sound = $knife_slash
+@onready var pipe_sound = $pipe_hit
+@onready var pistol_sound = $pistol_fire
+@onready var shotgun_sound = $shotgun_fire
+
+@onready var purchase_sound = $buy_sound
 
 func takeDamage(amount):
 	if not amount:
@@ -44,28 +50,30 @@ func die():
 
 func _process(_delta: float) -> void:
 	if cur_weapon != Currencies.weapon_tier:
-		cur_weapon = Currencies.weapon_tier
 		if Currencies.weapon_tier == 1:
 			print("now have knife")
+			purchase_sound.play()
 			knife_equip = knife.instantiate()
 			add_child(knife_equip)
 		if Currencies.weapon_tier == 2:
 			knife_equip.queue_free()
 			print("now have pipe")
+			purchase_sound.play()
 			pipe_equip = pipe.instantiate()
 			add_child(pipe_equip)
 		if Currencies.weapon_tier == 3:
 			pipe_equip.queue_free()
 			print("now have pistol")
+			purchase_sound.play()
 			pistol_equip = gun.instantiate()
 			add_child(pistol_equip)
 		if Currencies.weapon_tier == 4:
 			pistol_equip.queue_free()
 			print("now have rifle")
+			purchase_sound.play()
 			shotgun_equip = shotgun.instantiate()
 			add_child(shotgun_equip)
-		if Currencies.weapon_tier > 4:
-			pass
+		cur_weapon = Currencies.weapon_tier
 			
 	if Currencies.zone < 0:
 		$HPTimer.wait_time = 2
@@ -82,6 +90,12 @@ func _physics_process(_delta: float) -> void:
 	var speed = SPEED + Upgrades.getSpeed() - Currencies.zone * 50
 	velocity = velocity.lerp(move.normalized() * speed, SMOOTH)
 	
+	if Input.get_action_strength("Right") > Input.get_action_strength("Left"):
+		pass
+		
+	elif Input.get_action_strength("Left") > Input.get_action_strength("Right"):
+		pass
+	
 	#Animation player for movement
 	if Input.is_action_pressed("Down"):
 		movement_ani.play("walk_down")
@@ -91,10 +105,38 @@ func _physics_process(_delta: float) -> void:
 		movement_ani.flip_h = false
 		movement_ani.play("walk")
 	elif Input.is_action_pressed("Left"):
+		#flips animation horizontally
 		movement_ani.flip_h = true
 		movement_ani.play("walk")
 	else:
 		movement_ani.play("idle_face")
+	
+	if Input.is_action_just_pressed("Right"):
+		if cur_weapon == 1:
+			knife_equip.position.x = abs(knife_equip.position.x)
+			knife_equip.scale.x = 1
+		elif cur_weapon == 2:
+			pipe_equip.scale.x = 1
+			pipe_equip.position.x = abs(pipe_equip.position.x)
+		elif cur_weapon == 3:
+			pistol_equip.flip_h = false
+			pistol_equip.position.x = abs(pistol_equip.position.x)
+		elif cur_weapon == 4:
+			shotgun_equip.flip_h = false
+			shotgun_equip.position.x = abs(shotgun_equip.position.x)
+	if Input.is_action_just_pressed("Left"):
+		if cur_weapon == 1:
+			knife_equip.scale.x = -1
+			knife_equip.position.x = -abs(knife_equip.position.x)
+		elif cur_weapon == 2:
+			pipe_equip.scale.x = -1
+			pipe_equip.position.x = -abs(pipe_equip.position.x)
+		elif cur_weapon == 3:
+			pistol_equip.flip_h = true
+			pistol_equip.position.x = -abs(pistol_equip.position.x)
+		elif cur_weapon == 4:
+			shotgun_equip.flip_h = true
+			shotgun_equip.position.x = -abs(shotgun_equip.position.x)
 	
 	move_and_slide()
 	
@@ -103,12 +145,15 @@ func _physics_process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("attack") && (cur_weapon == 1):
 		print("Knife attack")
+		knife_sound.play()
 		knife_equip.attack()
 	elif Input.is_action_just_pressed("attack") && (cur_weapon == 2):
 		print("Pipe attack")
+		pipe_sound.play()
 		pipe_equip.attack()
 	elif Input.is_action_just_pressed("attack") && (cur_weapon == 3) && shoot_cooldown:
 		print("Pistol attack")
+		pistol_sound.play()
 		shoot_cooldown = false
 		var bullet_p = pistol_bullet.instantiate()
 		bullet_p.rotation = $Marker2D.rotation
@@ -121,6 +166,7 @@ func _physics_process(_delta: float) -> void:
 		
 	elif Input.is_action_just_pressed("attack") && (cur_weapon >= 4) && shoot_cooldown:
 		print("ShotGun attack")
+		shotgun_sound.play()
 		shoot_cooldown = false
 		var bullet_s = shotGun_bullet.instantiate()
 		bullet_s.rotation = $Marker2D.rotation
@@ -132,12 +178,39 @@ func _physics_process(_delta: float) -> void:
 		shoot_cooldown = true
 	
 	if Input.is_action_just_pressed("temp"):
-		Currencies.weapon_tier += 1
+		#if Currencies.weapon_tier < 4:
+			#Currencies.weapon_tier += 1
+		#This is for weapons testing, if you want to test just uncomment and right
+		#Click to activate
+		pass
+		
+	
 
+
+var heal = 0
+
+func healEffect():
+	if heal == 0:
+		$Heal.emitting = true
+	else:
+		$Heal2.emitting = true
+	
+	heal = (heal + 1) % 2
+
+
+var harm = 0
 
 func _on_hp_timer_timeout() -> void:
 	if Currencies.zone < 0:
 		return
 	
+	if harm == 0:
+		$Harm.emitting = true
+	elif harm == 1:
+		$Harm2.emitting = true
+	elif harm == 2:
+		$Harm3.emitting = true
+	
+	harm = (harm + 1) % 3
 	takeDamage(1)
 	

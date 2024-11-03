@@ -6,9 +6,15 @@ var zone = 0
 var point
 
 
+func canSpawn(point_):
+	return point_.visible
+
+
 func setup(zone_, point_):
 	zone = zone_
 	point = point_
+	
+	point_.visible = false
 	
 	if zone > 0:
 		$Sprite2D2.visible = true
@@ -23,3 +29,4 @@ func _on_body_entered(body: Node) -> void:
 		queue_free()
 		if point:
 			point.visible = true
+		

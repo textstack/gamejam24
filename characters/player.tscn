@@ -1,7 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://c0jardu1884hj"]
+[gd_scene load_steps=27 format=3 uid="uid://c0jardu1884hj"]
 
 [ext_resource type="Script" path="res://characters/player.gd" id="1_o87eb"]
 [ext_resource type="Texture2D" uid="uid://clq4qw78rm3ey" path="res://art/main_char/player_walking_resized.png" id="2_atbg5"]
+[ext_resource type="Texture2D" uid="uid://ttatly01vipi" path="res://art/rand/heal.png" id="3_05wsv"]
+[ext_resource type="AudioStream" uid="uid://le766wiyf7by" path="res://sound_effects/attack/knife/slash-21834.mp3" id="3_neta1"]
+[ext_resource type="Texture2D" uid="uid://b1koivfpd8jc3" path="res://art/rand/harm.png" id="4_geesg"]
+[ext_resource type="AudioStream" uid="uid://bf5wkwrskuwyn" path="res://sound_effects/attack/pipe/metal-whoosh-hit-7-201910.mp3" id="4_mn5da"]
+[ext_resource type="AudioStream" uid="uid://cketvghypc0du" path="res://sound_effects/attack/pistol/pistol-shot-233473.mp3" id="5_2xshq"]
+[ext_resource type="AudioStream" uid="uid://be83ja8vc6qqw" path="res://sound_effects/attack/shotgun/shotgun-firing-3-14483.mp3" id="6_2nw1s"]
+[ext_resource type="AudioStream" uid="uid://c8njyj21r8rwi" path="res://sound_effects/merchant/cashier_buy.mp3" id="7_kk4c7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uaf1f"]
 radius = 20.0
@@ -120,7 +127,37 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qc1h5"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 25.0
+emission_ring_inner_radius = 20.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -120.0
+radial_accel_max = -120.0
+scale_min = 3.0
+scale_max = 3.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fag0t"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 5.0
+emission_ring_inner_radius = 2.0
+spread = 180.0
+initial_velocity_min = 80.0
+initial_velocity_max = 80.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 40.0
+radial_accel_max = 40.0
+scale_min = 3.0
+scale_max = 3.0
+
 [node name="Player" type="CharacterBody2D" groups=["Trackable", "player"]]
+texture_filter = 1
 collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_o87eb")
@@ -142,5 +179,65 @@ autostart = true
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_le5md")
 animation = &"walk"
+
+[node name="knife_slash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_neta1")
+volume_db = 9.984
+
+[node name="pipe_hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_mn5da")
+volume_db = 3.328
+
+[node name="pistol_fire" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_2xshq")
+
+[node name="shotgun_fire" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_2nw1s")
+
+[node name="buy_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_kk4c7")
+
+[node name="Heal" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_qc1h5")
+texture = ExtResource("3_05wsv")
+lifetime = 0.5
+one_shot = true
+
+[node name="Heal2" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_qc1h5")
+texture = ExtResource("3_05wsv")
+lifetime = 0.5
+one_shot = true
+
+[node name="Harm" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 2
+process_material = SubResource("ParticleProcessMaterial_fag0t")
+texture = ExtResource("4_geesg")
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+
+[node name="Harm2" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 2
+process_material = SubResource("ParticleProcessMaterial_fag0t")
+texture = ExtResource("4_geesg")
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+
+[node name="Harm3" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 2
+process_material = SubResource("ParticleProcessMaterial_fag0t")
+texture = ExtResource("4_geesg")
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
 
 [connection signal="timeout" from="HPTimer" to="." method="_on_hp_timer_timeout"]

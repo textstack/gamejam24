@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://df0hqk4bito00"]
+[gd_scene load_steps=15 format=4 uid="uid://df0hqk4bito00"]
 
 [ext_resource type="Script" path="res://areas/main.gd" id="1_dsbfv"]
 [ext_resource type="TileSet" uid="uid://c4lyv77js54p3" path="res://areas/main.tres" id="1_k7527"]
@@ -7,8 +7,8 @@
 [ext_resource type="Script" path="res://areas/zone_0.gd" id="5_8x1qq"]
 [ext_resource type="Script" path="res://areas/zone_2.gd" id="6_rbb40"]
 [ext_resource type="PackedScene" uid="uid://c488gyky68pun" path="res://shops/healthShop.tscn" id="6_uetyb"]
-[ext_resource type="AudioStream" uid="uid://dqi3jd53d5err" path="res://sound_effects/ambience/scary-ambience-59002.mp3" id="8_65kxl"]
 [ext_resource type="PackedScene" uid="uid://d1hflghksqkc3" path="res://shops/weaponShop.tscn" id="7_yg1ts"]
+[ext_resource type="AudioStream" uid="uid://dqi3jd53d5err" path="res://sound_effects/ambience/scary-ambience-59002.mp3" id="8_65kxl"]
 [ext_resource type="PackedScene" uid="uid://cpcso4xmqvbj5" path="res://hud/hud.tscn" id="8_tdv5u"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jnggh"]

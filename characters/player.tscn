@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c0jardu1884hj"]
+[gd_scene load_steps=17 format=3 uid="uid://c0jardu1884hj"]
 
 [ext_resource type="Script" path="res://characters/player.gd" id="1_o87eb"]
 [ext_resource type="Texture2D" uid="uid://clq4qw78rm3ey" path="res://art/main_char/player_walking_resized.png" id="2_atbg5"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bf5wkwrskuwyn" path="res://sound_effects/attack/pipe/metal-whoosh-hit-7-201910.mp3" id="4_mn5da"]
 [ext_resource type="AudioStream" uid="uid://cketvghypc0du" path="res://sound_effects/attack/pistol/pistol-shot-233473.mp3" id="5_2xshq"]
 [ext_resource type="AudioStream" uid="uid://be83ja8vc6qqw" path="res://sound_effects/attack/shotgun/shotgun-firing-3-14483.mp3" id="6_2nw1s"]
+[ext_resource type="AudioStream" uid="uid://c8njyj21r8rwi" path="res://sound_effects/merchant/cashier_buy.mp3" id="7_kk4c7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csqst"]
 size = Vector2(40, 40)
@@ -118,5 +119,8 @@ stream = ExtResource("5_2xshq")
 
 [node name="shotgun_fire" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_2nw1s")
+
+[node name="buy_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_kk4c7")
 
 [connection signal="timeout" from="HPTimer" to="." method="_on_hp_timer_timeout"]

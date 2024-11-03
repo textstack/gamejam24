@@ -121,8 +121,9 @@ func _physics_process(_delta: float) -> void:
 		bullet_p.global_position = $Marker2D.global_position
 		add_child(bullet_p)
 		
-		await get_tree().create_timer(1).timeouts
+		await get_tree().create_timer(1).timeout
 		shoot_cooldown = true
+		
 	elif Input.is_action_just_pressed("attack") && (cur_weapon >= 4) && shoot_cooldown:
 		print("ShotGun attack")
 		shotgun_sound.play()

@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://boio3uqw582kq"]
+[gd_scene load_steps=4 format=3 uid="uid://boio3uqw582kq"]
 
 [ext_resource type="Script" path="res://objects/safe_zone.gd" id="1_6mf8h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_llbb5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oj38s"]
 
 [node name="SafeZone" type="Area2D"]
 collision_layer = 2
@@ -14,6 +16,13 @@ shape = SubResource("RectangleShape2D_llbb5")
 
 [node name="HealTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2048
+collision_mask = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_oj38s")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

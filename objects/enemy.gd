@@ -2,10 +2,10 @@ extends CharacterBody2D
 
 
 const SPEED = 300
-const SLOW_SPEED = 50
+const SLOW_SPEED = 75
 const SMOOTH = 0.05
 
-var health = 2
+var health = 3
 
 var thinSprite = preload("res://objects/thinsprite.tres")
 var kidSprite = preload("res://objects/kidsprite.tres")
@@ -84,7 +84,9 @@ func _process(_delta: float) -> void:
 
 
 func die():
-	#Currencies.money.add(5 ** zone)
+	if Currencies.zone == zone:
+		Currencies.money.add(5 ** zone)
+	
 	if point:
 		point.visible = true
 	
@@ -148,7 +150,11 @@ func goTowardsLastSeen():
 
 
 func goTowardsTarget():
-	if Currencies.zone < 0:
+	var diff = Vector2()
+	if target:
+		diff = target.position - position
+	
+	if Currencies.zone < 0 or (diff.length() > 100 and Currencies.zone != zone):
 		lastSeenPlayer = null
 		wander()
 		return
@@ -164,7 +170,7 @@ func goTowardsTarget():
 	if point:
 		point.visible = true
 	
-	var diff = target.position - position
+	
 	var dot = target.velocity.normalized().dot(-diff.normalized())
 	var move = diff + target.velocity * (1 - dot)
 	velocity = velocity.lerp(move.normalized() * SPEED, SMOOTH)

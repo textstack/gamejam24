@@ -9,7 +9,7 @@ extends Control
 # Initialize
 var health: int = 100
 var money: int = 0
-var zone: String = "SAFE"
+var zone: String = "S"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,7 +32,7 @@ func _set_money(amount: int):
 # Updates the health
 func _set_health(amount: int, limit: int):
 	health = amount
-	curr_health.bbcode_text = '[color=797165]HEALTH: ' + str(health) + '/' + str(limit) + '[/color]'
+	curr_health.bbcode_text = '[color=797165]HP: ' + str(health) + '/' + str(limit) + '[/color]'
 
 # Function to update current weapon
 func _set_curr_weapon(weapon: int):

@@ -82,9 +82,8 @@ func _physics_process(_delta: float) -> void:
 		Input.get_action_strength("Down") - Input.get_action_strength("Up"),
 	)
 	
-	var speed = SPEED + Upgrades.getSpeed() * 50 - Currencies.zone * 50
+	var speed = SPEED + Upgrades.getSpeed() - Currencies.zone * 50
 	velocity = velocity.lerp(move.normalized() * speed, SMOOTH)
-	
 	
 	#Animation player for movement
 	if Input.is_action_pressed("Down"):

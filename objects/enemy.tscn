@@ -9,7 +9,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wp0gl"]
 radius = 15.0
-height = 46.0
+height = 35.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_820nc"]
 radius = 400.0
@@ -22,8 +22,8 @@ radius = 22.0
 height = 70.0
 
 [node name="Enemy" type="CharacterBody2D" groups=["TrackingEnemy"]]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 2051
+collision_mask = 2051
 slide_on_ceiling = false
 platform_floor_layers = 4294901760
 script = ExtResource("1_qmhxg")

@@ -5,9 +5,6 @@ var player
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("TrackingEnemy"):
-		body.die()
-	
 	if body is Player:
 		Currencies.zone = -1
 		player = body

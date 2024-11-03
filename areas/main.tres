@@ -788,7 +788,7 @@ texture = ExtResource("1_k810t")
 
 [resource]
 physics_layer_0/collision_layer = 2
-physics_layer_0/collision_mask = 2
+physics_layer_0/collision_mask = 18
 terrain_set_0/mode = 0
 sources/2 = SubResource("TileSetAtlasSource_odard")
 sources/5 = SubResource("TileSetAtlasSource_vmyad")

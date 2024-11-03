@@ -37,6 +37,7 @@ func takeDamage(amount):
 func die():
 	get_tree().quit()
 
+
 func _process(_delta: float) -> void:
 	if cur_weapon != Currencies.weapon_tier:
 		cur_weapon = Currencies.weapon_tier
@@ -121,7 +122,7 @@ func _physics_process(_delta: float) -> void:
 		var p_pos = shotgun_equip.global_position
 		var vel = mouse_pos - p_pos
 		pistolB.emit(bullet_s, vel, p_pos)
-		
+
 		await get_tree().create_timer(1).timeout
 		shoot_cooldown = true
 

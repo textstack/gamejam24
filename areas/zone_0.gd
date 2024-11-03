@@ -7,5 +7,5 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _on_body_exited(body: Node2D) -> void:
-	if body is Player:
+	if body is Player and Currencies.zone >= 0:
 		Currencies.zone = 1

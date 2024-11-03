@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cqqdl0sk5peos" path="res://objects/coin.tscn" id="3_pkvuf"]
 [ext_resource type="PackedScene" uid="uid://duqtigcbefxlc" path="res://objects/enemy.tscn" id="4_1p6kt"]
 [ext_resource type="PackedScene" uid="uid://c488gyky68pun" path="res://shops/healthShop.tscn" id="5_men0b"]
-[ext_resource type="PackedScene" uid="uid://dgggk5wcwpsp4" path="res://shops/walkShop.tscn" id="6_cf5l7"]
+[ext_resource type="PackedScene" uid="uid://dgggk5wcwpsp4" path="res://shops/gate_shop.tscn" id="6_cf5l7"]
 [ext_resource type="PackedScene" uid="uid://d1hflghksqkc3" path="res://shops/weaponShop.tscn" id="7_pbpxd"]
 
 [node name="Test" type="Node2D"]

@@ -19,12 +19,14 @@ func isOnScreen(pos):
 func spawnObject(type, frac):
 	var inst = type.instantiate()
 	var zone = randi_range(0, 2)
-	var point = getRandomPlace(zone, frac + zone * 0.1)
+	var point = getRandomPlace(inst, zone, frac)
 	
 	if not point:
+		inst.queue_free()
 		return
 		
 	if isOnScreen(point.position):
+		inst.queue_free()
 		return
 	
 	point.visible = false
@@ -35,7 +37,7 @@ func spawnObject(type, frac):
 	$PlaySpace.add_child(inst)
 
 
-func getRandomPlace(zone, frac):
+func getRandomPlace(inst, zone, frac):
 	var spawns
 	if zone == 0:
 		spawns = $PlaySpace/Zone0/Spawns
@@ -47,7 +49,7 @@ func getRandomPlace(zone, frac):
 	var children = spawns.get_children()
 	var selectable = []
 	for i in children.size():
-		if children[i].visible:
+		if inst.canSpawn(children[i]):
 			selectable.append(children[i])
 	
 	if selectable.size() <= 0:
@@ -75,12 +77,8 @@ func _process(_delta: float) -> void:
 	hud._set_curr_weapon(Currencies.weapon_tier)
 	$PlaySpace.position = -$PlaySpace/Player.position
 	
-	spawnObject(enemy, 0.25)
+	spawnObject(enemy, 0.2)
 	spawnObject(coin, 0.3)
-	
-
-
-
 
 
 func _on_player_pistol_b(bullet: Variant, velo: Variant, posit: Variant) -> void:

@@ -33,11 +33,19 @@ var wanderCurl
 @onready var zombie_bite = $Zombie_bite
 
 signal step
+
+
+func canSpawn(point_):
+	return not point_.show_behind_parent
+
+
 func setup(zone_, point_):
 	zone = zone_
 	point = point_
 	
-	health = 2 * zone
+	point_.show_behind_parent = true
+	
+	health = 3 * (zone_ + 1)
 	
 	if zone == 0:
 		$Sprite.sprite_frames = kidSprite
@@ -88,7 +96,7 @@ func die():
 		Currencies.money.add(5 ** zone)
 	
 	if point:
-		point.visible = true
+		point.show_behind_parent = false
 	
 	queue_free()
 
@@ -141,6 +149,10 @@ func goTowardsLastSeen():
 		return true
 	
 	var move = lastSeenPlayer - position
+	if Currencies.zone != zone:
+		wander()
+		return true
+	
 	if move.length() < 40:
 		wander()
 		return true
@@ -150,11 +162,7 @@ func goTowardsLastSeen():
 
 
 func goTowardsTarget():
-	var diff = Vector2()
-	if target:
-		diff = target.position - position
-	
-	if Currencies.zone < 0 or (diff.length() > 100 and Currencies.zone != zone):
+	if Currencies.zone < 0:
 		lastSeenPlayer = null
 		wander()
 		return
@@ -170,7 +178,7 @@ func goTowardsTarget():
 	if point:
 		point.visible = true
 	
-	
+	var diff = target.position - position
 	var dot = target.velocity.normalized().dot(-diff.normalized())
 	var move = diff + target.velocity * (1 - dot)
 	velocity = velocity.lerp(move.normalized() * SPEED, SMOOTH)

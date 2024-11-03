@@ -44,8 +44,7 @@ func takeDamage(amount):
 
 
 func die():
-	pass
-	#get_tree().quit()
+	get_tree().quit()
 
 
 func _process(_delta: float) -> void:

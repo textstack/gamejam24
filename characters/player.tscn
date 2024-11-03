@@ -1,10 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://c0jardu1884hj"]
+[gd_scene load_steps=27 format=3 uid="uid://c0jardu1884hj"]
 
 [ext_resource type="Script" path="res://characters/player.gd" id="1_o87eb"]
 [ext_resource type="Texture2D" uid="uid://clq4qw78rm3ey" path="res://art/main_char/player_walking_resized.png" id="2_atbg5"]
 [ext_resource type="Texture2D" uid="uid://ttatly01vipi" path="res://art/rand/heal.png" id="3_05wsv"]
-[ext_resource type="Texture2D" uid="uid://b1koivfpd8jc3" path="res://art/rand/harm.png" id="4_geesg"]
 [ext_resource type="AudioStream" uid="uid://le766wiyf7by" path="res://sound_effects/attack/knife/slash-21834.mp3" id="3_neta1"]
+[ext_resource type="Texture2D" uid="uid://b1koivfpd8jc3" path="res://art/rand/harm.png" id="4_geesg"]
 [ext_resource type="AudioStream" uid="uid://bf5wkwrskuwyn" path="res://sound_effects/attack/pipe/metal-whoosh-hit-7-201910.mp3" id="4_mn5da"]
 [ext_resource type="AudioStream" uid="uid://cketvghypc0du" path="res://sound_effects/attack/pistol/pistol-shot-233473.mp3" id="5_2xshq"]
 [ext_resource type="AudioStream" uid="uid://be83ja8vc6qqw" path="res://sound_effects/attack/shotgun/shotgun-firing-3-14483.mp3" id="6_2nw1s"]
@@ -196,6 +196,7 @@ stream = ExtResource("6_2nw1s")
 
 [node name="buy_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_kk4c7")
+
 [node name="Heal" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 1

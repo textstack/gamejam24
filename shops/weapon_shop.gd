@@ -2,6 +2,7 @@ extends Node2D
 
 
 
+@onready var purchase_sound = $AudioStreamPlayer2D
 @onready var interaction_area: shopping = $Shopping
 @onready var sprite = $Polygon2D
 var cost
@@ -20,6 +21,7 @@ func _on_interact():
 		cost *= 3
 		$Shopping.shop_cost = cost
 		print("Weapon Gained")
+		purchase_sound.play()
 		Currencies.weapon_tier += 1
 		print(Currencies.weapon_tier)
 		

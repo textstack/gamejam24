@@ -52,25 +52,25 @@ func _process(_delta: float) -> void:
 	if cur_weapon != Currencies.weapon_tier:
 		if Currencies.weapon_tier == 1:
 			print("now have knife")
-			purchase_sound.play()
+			
 			knife_equip = knife.instantiate()
 			add_child(knife_equip)
 		if Currencies.weapon_tier == 2:
 			knife_equip.queue_free()
 			print("now have pipe")
-			purchase_sound.play()
+			
 			pipe_equip = pipe.instantiate()
 			add_child(pipe_equip)
 		if Currencies.weapon_tier == 3:
 			pipe_equip.queue_free()
 			print("now have pistol")
-			purchase_sound.play()
+			
 			pistol_equip = gun.instantiate()
 			add_child(pistol_equip)
 		if Currencies.weapon_tier == 4:
 			pistol_equip.queue_free()
 			print("now have rifle")
-			purchase_sound.play()
+			
 			shotgun_equip = shotgun.instantiate()
 			add_child(shotgun_equip)
 		if Currencies.weapon_tier > 4:
@@ -84,6 +84,8 @@ func _process(_delta: float) -> void:
 	$HPTimer.wait_time = 2.0 / (3 ** Currencies.zone)
 
 func _physics_process(_delta: float) -> void:
+	#signal connection for purchase sound
+	
 	var move = Vector2(
 		Input.get_action_strength("Right") - Input.get_action_strength("Left"),
 		Input.get_action_strength("Down") - Input.get_action_strength("Up"),
@@ -197,6 +199,10 @@ func healEffect():
 
 
 var harm = 0
+
+#helper function to play purchase sound
+func _purchase_sound():
+	purchase_sound.play()
 
 func _on_hp_timer_timeout() -> void:
 	if Currencies.zone < 0:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bsy2fu33rrj1x"]
 
 [ext_resource type="Script" path="res://weapons/shot_gun_bullet.gd" id="1_wgqpq"]
-[ext_resource type="Texture2D" uid="uid://dkqtjaiju7w8y" path="res://art/weapons/gun_shooting.png" id="2_dry2a"]
+[ext_resource type="Texture2D" uid="uid://dnfn8fnfh0sxg" path="res://art/weapons/bullet.png" id="2_01ho0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oud6g"]
 radius = 16.0
@@ -11,8 +11,9 @@ height = 76.0
 script = ExtResource("1_wgqpq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
-texture = ExtResource("2_dry2a")
+rotation = 1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("2_01ho0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

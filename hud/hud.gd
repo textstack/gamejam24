@@ -35,13 +35,15 @@ func _set_health(amount: int):
 	curr_health.bbcode_text = '[color=797165]HEALTH: ' + str(health) + '[/color]'
 
 # Function to update current weapon
-func _set_curr_weapon(weapon: String):
+func _set_curr_weapon(weapon: int):
 	match weapon:
-		"empty":
+		0:
 			curr_weapon.texture = load("res://art/hud/empty.png")
-		"knife":
+		1:
 			curr_weapon.texture = load("res://art/hud/knife.png")
-		"gun":
+		2:
+			curr_weapon.texture = load("res://art/hud/pipe_sign.png")
+		3:
 			curr_weapon.texture = load("res://art/hud/gun.png")
-		"shotgun":
+		4:
 			curr_weapon.texture = load("res://art/hud/shotgun.png")

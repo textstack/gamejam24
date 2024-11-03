@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://8oa5va6an78i"]
 
 [ext_resource type="Script" path="res://weapons/pistol_bullet.gd" id="1_4alae"]
-[ext_resource type="Texture2D" uid="uid://dkqtjaiju7w8y" path="res://art/weapons/gun_shooting.png" id="2_yen0k"]
+[ext_resource type="Texture2D" uid="uid://dnfn8fnfh0sxg" path="res://art/weapons/bullet.png" id="2_3btew"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0s6tn"]
 radius = 6.0
@@ -10,9 +10,6 @@ height = 36.0
 [node name="PistolBullet" type="Area2D"]
 script = ExtResource("1_4alae")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_yen0k")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0s6tn")
@@ -20,6 +17,11 @@ shape = SubResource("CapsuleShape2D_0s6tn")
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(0, -4.76837e-07)
 scale = Vector2(0.2, 0.6)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_3btew")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

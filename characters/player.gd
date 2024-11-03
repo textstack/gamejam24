@@ -36,6 +36,7 @@ func takeDamage(amount):
 func die():
 	get_tree().quit()
 
+
 func _process(_delta: float) -> void:
 	if cur_weapon != Currencies.weapon_tier:
 		cur_weapon = Currencies.weapon_tier

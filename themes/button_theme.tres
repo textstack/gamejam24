@@ -3,9 +3,9 @@
 [ext_resource type="FontFile" uid="uid://cknm4tdaunqe8" path="res://fonts/Retro Gaming.ttf" id="1_j5bt3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ifao"]
-content_margin_left = 14.0
+content_margin_left = 20.0
 content_margin_top = 7.0
-content_margin_right = 14.0
+content_margin_right = 18.0
 content_margin_bottom = 18.0
 bg_color = Color(0.819608, 0.796078, 0.670588, 1)
 border_width_bottom = 10

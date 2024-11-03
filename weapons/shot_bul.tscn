@@ -5,11 +5,13 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cwnwi"]
 radius = 17.0
-height = 42.0
+height = 38.0
 
-[node name="ShotBul" type="RigidBody2D"]
-collision_layer = 8
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 24
 collision_mask = 8
+contact_monitor = true
+max_contacts_reported = 20
 script = ExtResource("1_nwcxo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

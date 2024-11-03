@@ -32,6 +32,8 @@ var shotgun_equip
 @onready var pistol_sound = $pistol_fire
 @onready var shotgun_sound = $shotgun_fire
 
+@onready var purchase_sound = $buy_sound
+
 func takeDamage(amount):
 	if not amount:
 		amount = 1
@@ -50,21 +52,25 @@ func _process(_delta: float) -> void:
 		cur_weapon = Currencies.weapon_tier
 		if Currencies.weapon_tier == 1:
 			print("now have knife")
+			purchase_sound.play()
 			knife_equip = knife.instantiate()
 			add_child(knife_equip)
 		if Currencies.weapon_tier == 2:
 			knife_equip.queue_free()
 			print("now have pipe")
+			purchase_sound.play()
 			pipe_equip = pipe.instantiate()
 			add_child(pipe_equip)
 		if Currencies.weapon_tier == 3:
 			pipe_equip.queue_free()
 			print("now have pistol")
+			purchase_sound.play()
 			pistol_equip = gun.instantiate()
 			add_child(pistol_equip)
 		if Currencies.weapon_tier == 4:
 			pistol_equip.queue_free()
 			print("now have rifle")
+			purchase_sound.play()
 			shotgun_equip = shotgun.instantiate()
 			add_child(shotgun_equip)
 		if Currencies.weapon_tier > 4:

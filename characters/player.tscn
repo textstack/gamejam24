@@ -8,8 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://be83ja8vc6qqw" path="res://sound_effects/attack/shotgun/shotgun-firing-3-14483.mp3" id="6_2nw1s"]
 [ext_resource type="AudioStream" uid="uid://c8njyj21r8rwi" path="res://sound_effects/merchant/cashier_buy.mp3" id="7_kk4c7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_csqst"]
-size = Vector2(40, 40)
+[sub_resource type="CircleShape2D" id="CircleShape2D_uaf1f"]
+radius = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_56vwp"]
 atlas = ExtResource("2_atbg5")
@@ -93,7 +93,7 @@ visible = false
 polygon = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_csqst")
+shape = SubResource("CircleShape2D_uaf1f")
 
 [node name="HPTimer" type="Timer" parent="."]
 wait_time = 50.0

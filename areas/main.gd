@@ -68,6 +68,7 @@ func _process(_delta: float) -> void:
 		hud._set_zone("SAFE")
 	else:
 		hud._set_zone(str(Currencies.zone))
+	hud._set_curr_weapon(Currencies.weapon_tier)
 	$PlaySpace.position = -$PlaySpace/Player.position
 	
 	spawnObject(enemy, 0.2)

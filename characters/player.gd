@@ -17,6 +17,7 @@ signal died
 
 var cur_weapon = 0
 var shoot_cooldown = true
+var zoneCheck = 0
 
 # Weapon instanitations
 var knife_equip

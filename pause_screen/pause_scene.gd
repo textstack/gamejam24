@@ -40,6 +40,7 @@ func _on_reset_pressed() -> void:
 func _on_main_menu_pressed() -> void:
 	get_tree().paused = false
 	Currencies.resetCurrencies()
+	Upgrades.reset()
 	get_tree().change_scene_to_file("res://title_screen/title_scene.tscn")
 
 func _on_quit_pressed() -> void:

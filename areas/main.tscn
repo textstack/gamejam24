@@ -89,7 +89,7 @@ z_index = 1
 tile_map_data = PackedByteArray("AADv/wAAAgAVAAsAAADw/wAAAgAVAAsAAADx/wAAAgAVAAsAAAA=")
 tile_set = ExtResource("1_k7527")
 
-[node name="20" parent="PlaySpace/Background/gate1" instance=ExtResource("3_au7rw")]
+[node name="5" parent="PlaySpace/Background/gate1" instance=ExtResource("3_au7rw")]
 position = Vector2(-248, 8.8)
 
 [node name="gate2" type="TileMapLayer" parent="PlaySpace/Background"]
@@ -97,10 +97,10 @@ z_index = 1
 tile_map_data = PackedByteArray("AAAOAAAAAgAVAAsAAAAPAAAAAgAVAAsAAAAQAAAAAgAVAAsAAAA=")
 tile_set = ExtResource("1_k7527")
 
-[node name="200" parent="PlaySpace/Background/gate2" instance=ExtResource("3_au7rw")]
+[node name="10" parent="PlaySpace/Background/gate2" instance=ExtResource("3_au7rw")]
 position = Vector2(249.2, 6)
 
-[node name="Control" type="Control" parent="PlaySpace/Background/gate2/200"]
+[node name="Control" type="Control" parent="PlaySpace/Background/gate2/10"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

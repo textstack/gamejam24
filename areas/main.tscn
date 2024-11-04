@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cpcso4xmqvbj5" path="res://hud/hud.tscn" id="8_tdv5u"]
 [ext_resource type="Texture2D" uid="uid://b8p1bnujmemux" path="res://art/info.png" id="10_yn7t5"]
 [ext_resource type="PackedScene" uid="uid://dg15in160b3xh" path="res://end_screen/end_screen.tscn" id="11_cf2pe"]
-[ext_resource type="PackedScene" uid="uid://cuf06jrbcow3w" path="res://info.tscn" id="12_rodcp"]
+[ext_resource type="PackedScene" path="res://info.tscn" id="12_rodcp"]
 [ext_resource type="PackedScene" uid="uid://7cdw2ntlsmyi" path="res://pause_screen/pause_scene.tscn" id="13_5a4bj"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jnggh"]
@@ -111,7 +111,7 @@ z_index = 1
 tile_map_data = PackedByteArray("AAAPAOr/AgAVAAsAAAAQAOr/AgAVAAsAAAARAOr/AgAVAAsAAAA=")
 tile_set = ExtResource("1_k7527")
 
-[node name="2500" parent="PlaySpace/Background/gate3" instance=ExtResource("3_au7rw")]
+[node name="200" parent="PlaySpace/Background/gate3" instance=ExtResource("3_au7rw")]
 position = Vector2(263.6, -344)
 
 [node name="SafeZone" parent="PlaySpace" instance=ExtResource("4_qaafj")]

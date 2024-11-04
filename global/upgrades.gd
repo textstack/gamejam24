@@ -7,16 +7,16 @@ var health = {}
 
 
 func _ready() -> void:
-	newUpgrade("small_sketch", "health", 4, 1.3, 3)
-	newUpgrade("hopefulness", "health", 40, 1.3, 12)
-	newUpgrade("new_hobby", "health", 200, 1.3, 60)
+	newUpgrade("small_sketch", "health", 1, 1, 20)
+	newUpgrade("hopefulness", "health", 3, 2, 50)
+	newUpgrade("new_hobby", "health", 5, 4, 100)
 	
-	newUpgrade("clean_water", "heal", 8, 1.4, 1)
-	newUpgrade("bandages", "heal", 60, 1.4, 5)
-	newUpgrade("first_aid", "heal", 300, 1.4, 25)
+	newUpgrade("clean_water", "heal", 1, 1, 20)
+	newUpgrade("bandages", "heal", 3, 1, 50)
+	newUpgrade("first_aid", "heal", 5, 2, 100)
 	
-	newUpgrade("good_food", "speed", 25, 2, 25)
-	newUpgrade("energy_drink", "speed", 400, 2, 50)
+	newUpgrade("good_food", "speed", 1, 2, 25)
+	newUpgrade("energy_drink", "speed", 2, 2, 50)
 
 
 func reset():

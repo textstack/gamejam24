@@ -10,7 +10,7 @@ var cost
 
 func _ready() -> void:
 	interaction_area.Buy = Callable(self, "_on_interact")
-	cost = 10
+	cost = 2
 	$Shopping.shop_cost = cost
 	$Shopping.action_name = "+weapon"
 
@@ -18,7 +18,7 @@ func _ready() -> void:
 # where the actual changes to state of stuff happens
 func _on_interact():
 	if Currencies.money.trySpend(cost):
-		cost *= 3
+		cost *= 2
 		$Shopping.shop_cost = cost
 		print("Weapon Gained")
 		if Currencies.weapon_tier < 4:

@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var anim = $AnimationPlayer
-@export var damage : int = 2
+@export var damage : int = 3
 
 func attack():
 	anim.play("swing")

@@ -146,7 +146,7 @@ func onCollide(collision):
 	if body is Player and Time.get_unix_time_from_system() - lastHitPlayer > 0.5:
 		lastHitPlayer = Time.get_unix_time_from_system()
 		zombie_bite.play()
-		body.takeDamage(10 ** zone)
+		body.takeDamage(zone + 1)
 
 
 func wander():

@@ -37,8 +37,7 @@ var shotgun_equip
 @onready var purchase_sound = $buy_sound
 
 func takeDamage(amount):
-	if not amount:
-		amount = 1
+	amount = amount
 	
 	Currencies.health.total -= amount
 	if Currencies.health.total <= 0:
@@ -177,7 +176,7 @@ func _physics_process(_delta: float) -> void:
 		var vel = mouse_pos - p_pos
 		pistolB.emit(bullet_s, vel, p_pos)
 
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(0.3).timeout
 		shoot_cooldown = true
 	
 	if Input.is_action_just_pressed("temp"):
@@ -212,12 +211,12 @@ func _on_hp_timer_timeout() -> void:
 		return
 	
 	if harm == 0:
-		$Harm.emitting = true
+		$Harm.emitting = false
 	elif harm == 1:
 		$Harm2.emitting = true
 	elif harm == 2:
 		$Harm3.emitting = true
 	
 	harm = (harm + 1) % 3
-	takeDamage(1)
+	takeDamage(0)
 	

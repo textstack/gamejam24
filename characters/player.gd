@@ -213,7 +213,7 @@ func _on_hp_timer_timeout() -> void:
 	if harm == 0:
 		$Harm.emitting = false
 	elif harm == 1:
-		$Harm2.emitting = true
+		$Harm2.emitting = false
 	elif harm == 2:
 		$Harm3.emitting = true
 	

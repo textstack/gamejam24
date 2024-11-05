@@ -110,9 +110,17 @@ func _on_win_check_body_entered(body: Node2D) -> void:
 		won = true
 		$CanvasLayer/YouWin.visible = true
 		$PlaySpace.queue_free()
+		
 
-func _on_info_mouse_entered() -> void:
-	$CanvasLayer/Info.show()
-	
-func _on_info_mouse_exited() -> void:
-	$CanvasLayer/Info.hide()
+func _on_restart_pressed() -> void:
+	Currencies.resetCurrencies()
+	Upgrades.reset()
+	# out reset function call here
+	get_tree().reload_current_scene()
+
+
+func _on_quit_pressed() -> void:
+	get_tree().paused = false
+	Currencies.resetCurrencies()
+	Upgrades.reset()
+	get_tree().change_scene_to_file("res://title_screen/title_scene.tscn")
